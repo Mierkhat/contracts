@@ -1,0 +1,41 @@
+{
+  "toolchain": "rustc 1.91.0 (f8297e351 2025-10-28)",
+  "target": "wasm32v1-none",
+  "artifacts": {
+    "soroswap_token": {
+      "source_repo": "https://github.com/soroswap/core.git",
+      "source_commit": "6eade008ee6794075ad941609e0fef0d1124d3eb",
+      "sha256": "138b6c69a4f3ac8161c42cc1da02fd4320322cde62757629a8651a1f4c6bdec3",
+      "bytes": 7408,
+      "cargo_lock_sha256": "064dae3ab38feb2456cfa31446396ae9bf4a558ee11c3c64f3173ca238aa091e"
+    },
+    "soroswap_pair": {
+      "source_repo": "https://github.com/soroswap/core.git",
+      "source_commit": "6eade008ee6794075ad941609e0fef0d1124d3eb",
+      "sha256": "aae8760f5eebdfefa66914cf98e4cf945f9bac4aa8e5613d4e9e2d423a438d8a",
+      "bytes": 26846,
+      "cargo_lock_sha256": "aede3236dde995c1279e2c794056c458a79af4c17bbdf6a66eacf9714add67e6"
+    },
+    "soroswap_factory": {
+      "source_repo": "https://github.com/soroswap/core.git",
+      "source_commit": "6eade008ee6794075ad941609e0fef0d1124d3eb",
+      "sha256": "93ff0f4a634feceae6fb21b587b9508b58cbce8100da2eed0f53601ecf0533a6",
+      "bytes": 11474,
+      "cargo_lock_sha256": "831d62fd48b38f5d0d38fe4f97acd78b8699e72e08798b830a135f7154a6b032"
+    },
+    "soroswap_router": {
+      "source_repo": "https://github.com/soroswap/core.git",
+      "source_commit": "6eade008ee6794075ad941609e0fef0d1124d3eb",
+      "sha256": "394539a70060065116930cdbb5d301f299621025985ba9693c7e58142e642539",
+      "bytes": 31762,
+      "cargo_lock_sha256": "99ab5c0b256334333ecf5c34f5ae2646fbbced2a545362d81a3cac315f8d4e82"
+    },
+    "defindex_vault": {
+      "source_repo": "https://github.com/paltalabs/defindex.git",
+      "source_commit": "a0fcabfae38f1c7b0c9c2f10ff51d225f8edc2f1",
+      "sha256": "e2786bd6693a117ec0d9c4acfab940d74a99687ea26e5273342adbd802a68dd9",
+      "bytes": 74817,
+      "cargo_lock_sha256": "abb49bc56e73e2008909200e4fe63060502f5191693db9a42732de0c3dd53e49"
+    }
+  }
+}
