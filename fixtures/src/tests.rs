@@ -38,7 +38,10 @@ fn pin(env: &Env, address: &Address, wasm: &[u8]) -> CodePin {
     }
 }
 fn fixture(settlement_underlying: bool, one_asset: bool) -> Fixture {
-    let env = Env::default();
+    let env = Env::new_with_config(soroban_sdk::testutils::EnvTestConfig {
+        capture_snapshot_at_drop: false,
+        ..Default::default()
+    });
     env.cost_estimate().budget().reset_unlimited();
     env.ledger().with_mut(|l| {
         l.timestamp = 1_000;
@@ -330,4 +333,128 @@ fn replay_deadlines_vectors_and_donations() {
             Error::BadSchema as u32
         )))
     );
+}
+
+#[test]
+fn signed_field_mutations_reject_and_do_not_write() {
+    let f = fixture(false, false);
+    let mut cases = std::vec::Vec::new();
+    let mut i = f.intent.clone();
+    i.network_id = BytesN::from_array(&f.env, &[99; 32]);
+    cases.push(i);
+    let mut i = f.intent.clone();
+    i.guard = f.vault.clone();
+    cases.push(i);
+    let mut i = f.intent.clone();
+    i.profile_hash = BytesN::from_array(&f.env, &[0; 32]);
+    cases.push(i);
+    let mut i = f.intent.clone();
+    i.recipient = Address::generate(&f.env);
+    cases.push(i);
+    let mut i = f.intent.clone();
+    i.shares = 0;
+    cases.push(i);
+    let mut i = f.intent.clone();
+    i.min_receive = -1;
+    cases.push(i);
+    let mut i = f.intent.clone();
+    i.min_swap = vec![&f.env, 0i128, 1i128];
+    cases.push(i);
+    let mut i = f.intent.clone();
+    i.valid_before_ledger = 100;
+    cases.push(i);
+    let mut i = f.intent.clone();
+    i.valid_before_ledger = 165;
+    cases.push(i);
+    let mut i = f.intent.clone();
+    i.valid_before_time = 1301;
+    cases.push(i);
+    for i in cases {
+        authorize(&f, &i);
+        let before = f.env.to_snapshot().ledger;
+        assert!(GuardClient::new(&f.env, &f.guard)
+            .try_execute_exit(&i)
+            .is_err());
+        assert_eq!(before, f.env.to_snapshot().ledger);
+    }
+    // R03: owner authorization over only the share transfer cannot authorize root execution.
+    token::Client::new(&f.env, &f.vault).mock_auths(&[MockAuth {
+        address: &f.owner,
+        invoke: &MockAuthInvoke {
+            contract: &f.vault,
+            fn_name: "transfer",
+            args: (f.owner.clone(), f.guard.clone(), f.intent.shares).into_val(&f.env),
+            sub_invokes: &[],
+        },
+    }]);
+    assert!(GuardClient::new(&f.env, &f.guard)
+        .try_execute_exit(&f.intent)
+        .is_err());
+}
+#[test]
+fn second_swap_failure_restores_full_state_and_donations_cannot_fund_minimum() {
+    let f = fixture(false, false);
+    let mut i = f.intent.clone();
+    i.min_swap = vec![&f.env, 1i128, i128::MAX];
+    authorize(&f, &i);
+    let before = f.env.to_snapshot().ledger;
+    assert!(GuardClient::new(&f.env, &f.guard)
+        .try_execute_exit(&i)
+        .is_err());
+    assert_eq!(before, f.env.to_snapshot().ledger);
+    let a = &f.settlement;
+    token::Client::new(&f.env, a)
+        .mock_auths(&[MockAuth {
+            address: &f.owner,
+            invoke: &MockAuthInvoke {
+                contract: a,
+                fn_name: "transfer",
+                args: (f.owner.clone(), f.guard.clone(), 10_000_000_000i128).into_val(&f.env),
+                sub_invokes: &[],
+            },
+        }])
+        .transfer(&f.owner, &f.guard, &10_000_000_000);
+    let mut i = f.intent.clone();
+    i.min_receive = 5_000_000_000;
+    authorize(&f, &i);
+    let before = f.env.to_snapshot().ledger;
+    assert_eq!(
+        GuardClient::new(&f.env, &f.guard).try_execute_exit(&i),
+        Err(Ok(soroban_sdk::Error::from_contract_error(
+            Error::OutcomeBelowMinimum as u32
+        )))
+    );
+    assert_eq!(before, f.env.to_snapshot().ledger);
+}
+#[test]
+fn runtime_code_pin_change_rejects_before_spending() {
+    let f = fixture(false, false);
+    let hash = f.env.deployer().upload_contract_wasm(router::WASM);
+    f.env.as_contract(&f.vault, || {
+        f.env.deployer().update_current_contract_wasm(hash)
+    });
+    authorize(&f, &f.intent);
+    let before = f.env.to_snapshot().ledger;
+    assert_eq!(
+        GuardClient::new(&f.env, &f.guard).try_execute_exit(&f.intent),
+        Err(Ok(soroban_sdk::Error::from_contract_error(
+            Error::DependencyChanged as u32
+        )))
+    );
+    assert_eq!(before, f.env.to_snapshot().ledger);
+}
+#[test]
+fn cross_language_vectors_and_host_resource_observation() {
+    use soroban_sdk::xdr::ToXdr;
+    let f = fixture(false, false);
+    authorize(&f, &f.intent);
+    let receipt = GuardClient::new(&f.env, &f.guard).execute_exit(&f.intent);
+    let resources = f.env.cost_estimate().resources();
+    let hex = |bytes: soroban_sdk::Bytes| -> std::string::String {
+        bytes.iter().map(|b| std::format!("{b:02x}")).collect()
+    };
+    let output=std::format!("{{\n  \"kind\": \"strict owner mock host fixture, not a signed ledger transaction\",\n  \"profile_xdr_hex\": \"{}\",\n  \"intent_xdr_hex\": \"{}\",\n  \"receipt_xdr_hex\": \"{}\",\n  \"resources_debug\": \"{:?}\"\n}}\n",hex(f.profile.to_xdr(&f.env)),hex(f.intent.to_xdr(&f.env)),hex(receipt.to_xdr(&f.env)),resources);
+    let path =
+        std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../evidence/host-fixture.json");
+    std::fs::write(path, output).unwrap();
 }
