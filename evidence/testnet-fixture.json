@@ -1,0 +1,609 @@
+{
+  "network": "Test SDF Network ; September 2015",
+  "owner": "GCAVTARGBNDGUCVBMXE2RU5OW5TBJZANS3UDPTMGDAECA3XYHGY77T5C",
+  "admin": "GBILTNMJALYUJZF2FRO44Y5HEO73ENGQHC4FBTF5AX2IPPDDDEF5UOI6",
+  "operations": {
+    "upload_soroswap_pair": {
+      "hash": "5ea1fb1bf6d9cc199ac26d66a6c756ee42b24e145a9ea3f69f3a71a9e783b8ae",
+      "ledger": 5399967,
+      "fee": "16917081"
+    },
+    "upload_soroswap_factory": {
+      "hash": "0f10aa88854fcf0a6b83cedc9294c52c67438aea0c93832774321135e5d69b59",
+      "ledger": 5399968,
+      "fee": "5991833"
+    },
+    "upload_soroswap_router": {
+      "hash": "f03d6800672ce059ab488544963187840b03e2819fc7048c4c55cef8427bf01d",
+      "ledger": 5399969,
+      "fee": "15584543"
+    },
+    "upload_defindex_vault": {
+      "hash": "2da60256824299db0731d51320ad1a32dfb254fa520fdb7f832a20725724aae0",
+      "ledger": 5399970,
+      "fee": "40802851"
+    },
+    "upload_mierkhat_guard": {
+      "hash": "0ddb8b219cfe0156ef92ec484aa8fa950037d727dac90916b02dd5585d189ff4",
+      "ledger": 5399971,
+      "fee": "12952094"
+    },
+    "deploy_soroswap_factory": {
+      "hash": "a91a516ce3d2408eb386b503e2c57d7e35c0e88650fc78556269e9bc55cc7991",
+      "ledger": 5400007,
+      "fee": "14788"
+    },
+    "initialize_factory": {
+      "hash": "65cd945d828c561f5c83553e8bf9f79f52b3a1770a9d9b36fb12d1b32de7c37e",
+      "ledger": 5400008,
+      "fee": "19796555"
+    },
+    "deploy_soroswap_router": {
+      "hash": "2cf67b301f1e20aec6cdf47f043c9e7b2ef84df0f6c0ea7e52f5ea120e531eeb",
+      "ledger": 5400009,
+      "fee": "14812"
+    },
+    "initialize_router": {
+      "hash": "93dc45db936b8de30ce8ef52db4bb1d0450f0195fa55236010d1f980e77c367f",
+      "ledger": 5400010,
+      "fee": "50968684"
+    },
+    "create_asset_0": {
+      "hash": "d035f539cbfb071360d3718f1ee9a02ea17563f918fac1ee9bb5e867ef837d56",
+      "ledger": 5400011,
+      "fee": "50130"
+    },
+    "create_asset_1": {
+      "hash": "d0a9db469d8fecc75cfe1945cc624d70b88b3348f3cb63a0fa70b8a926ea64c6",
+      "ledger": 5400012,
+      "fee": "50130"
+    },
+    "create_asset_2": {
+      "hash": "e6702f78f8c24ec3eca79e2e4a5f05d9bffb17e633e558483bdb55dad743174c",
+      "ledger": 5400013,
+      "fee": "51711"
+    },
+    "trust_assets": {
+      "hash": "122914131ac15d84539edc26c9a315f7ef5abd4516f8bb58d5c677269e7a7189",
+      "ledger": 5400014,
+      "fee": "300"
+    },
+    "mint_asset_0": {
+      "hash": "3cc82868cb7a88b5db795fecdb943ec63d809b126980e8530f37bcd83feb793d",
+      "ledger": 5400015,
+      "fee": "4607"
+    },
+    "mint_asset_1": {
+      "hash": "67cc0874f8b4970bf41a93fab15be0866e6f41ae88ea24d87f7e252de107ed68",
+      "ledger": 5400016,
+      "fee": "4607"
+    },
+    "mint_asset_2": {
+      "hash": "0786a866c614392df316f57c160a260f5b3b4bd7a034ea886914b1b7fb0e1f6d",
+      "ledger": 5400017,
+      "fee": "4640"
+    },
+    "liquidity_0": {
+      "hash": "20428db3e74f6770fd4244b13382a1bd08b4e77f8ace6e97c20ec712e368efdf",
+      "ledger": 5400018,
+      "fee": "56566586"
+    },
+    "liquidity_1": {
+      "hash": "aaeb502d31544a2acba4cb4df71d782ea0a111d4a3c14e8968b1a7a7bff466cc",
+      "ledger": 5400019,
+      "fee": "1239450"
+    },
+    "deploy_defindex_vault": {
+      "hash": "7ea63a5c983279e05340329783f4622f523d0215a97ea25145e6f474f2784d6f",
+      "ledger": 5400020,
+      "fee": "122559"
+    },
+    "deposit": {
+      "hash": "6b435e0af038b72059242c95963b012d37dff4273d4554eae451429236a222d2",
+      "ledger": 5400021,
+      "fee": "134467222"
+    },
+    "deploy_mierkhat_guard": {
+      "hash": "4a0c2dd3b634aaa3131be178516b72ec45e3cf46b4864a3aa56fd99465044e09",
+      "ledger": 5400023,
+      "fee": "42947776"
+    },
+    "guarded_success": {
+      "hash": "bb8b93098ca08e20774dc906483487cc9fb887c4b9abea505698fa91baed21cd",
+      "ledger": 5400050,
+      "fee": "581691"
+    },
+    "guarded_rollback": {
+      "hash": "5252ef1b330ead8048875238f8fdc3ed9b854b2c70201a2114921eeb9bb3316e",
+      "ledger": 5400067,
+      "fee": "40809"
+    }
+  },
+  "artifacts": {
+    "soroswap_pair": "aae8760f5eebdfefa66914cf98e4cf945f9bac4aa8e5613d4e9e2d423a438d8a",
+    "soroswap_factory": "93ff0f4a634feceae6fb21b587b9508b58cbce8100da2eed0f53601ecf0533a6",
+    "soroswap_router": "394539a70060065116930cdbb5d301f299621025985ba9693c7e58142e642539",
+    "defindex_vault": "e2786bd6693a117ec0d9c4acfab940d74a99687ea26e5273342adbd802a68dd9",
+    "mierkhat_guard": "515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269"
+  },
+  "bundle": {
+    "environment": "testnet",
+    "epoch": "integration-fixture-v1",
+    "enabled": false,
+    "reviewed": false,
+    "networkPassphrase": "Test SDF Network ; September 2015",
+    "guard": "CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74",
+    "guardWasmHash": "515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269",
+    "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+    "profile": {
+      "schema": 1,
+      "network_id": "cee0302d59844d32bdca915c8203dd44b33fbb7edc19051ea37abedf28ecd472",
+      "vault": {
+        "address": "CA7BC5WFIE4TEE7UATJQDWMLMO242B5S3GCVZOGXHYEDABXLZNKXBBWX",
+        "wasm_hash": "e2786bd6693a117ec0d9c4acfab940d74a99687ea26e5273342adbd802a68dd9"
+      },
+      "router": {
+        "address": "CBATOXK3UEPQZXEWKDCPU2D26V27IEZYXASJJGE5ZOUAUHZH2DSDP7TW",
+        "wasm_hash": "394539a70060065116930cdbb5d301f299621025985ba9693c7e58142e642539"
+      },
+      "factory": {
+        "address": "CBNLZ7V5BG4UYZ645GXY7MGYYE3I676K7AMLVNQAZI5NIWOOXO36ILZZ",
+        "wasm_hash": "93ff0f4a634feceae6fb21b587b9508b58cbce8100da2eed0f53601ecf0533a6"
+      },
+      "settlement": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+      "assets": [
+        {
+          "asset": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+          "pair": {
+            "address": "CAAROB2VSLSORTRLQ7OSND5YXFYQWOI4ZYQ5VHOXHGFINZCOVHAT4FD4",
+            "wasm_hash": "aae8760f5eebdfefa66914cf98e4cf945f9bac4aa8e5613d4e9e2d423a438d8a"
+          }
+        },
+        {
+          "asset": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+          "pair": {
+            "address": "CDFKGGP5SRNNNCEAZ4ECGWAQT4O3BU3IUY65VF6QU5MYN4Z5Q7KYELZH",
+            "wasm_hash": "aae8760f5eebdfefa66914cf98e4cf945f9bac4aa8e5613d4e9e2d423a438d8a"
+          }
+        }
+      ],
+      "max_seconds": 300,
+      "max_ledgers": 64
+    },
+    "tokens": [
+      {
+        "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+        "symbol": "MKA",
+        "decimals": 7
+      },
+      {
+        "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+        "symbol": "MKB",
+        "decimals": 7
+      },
+      {
+        "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+        "symbol": "MKOUT",
+        "decimals": 7
+      }
+    ],
+    "vaultName": "Mierkhat testnet fixture",
+    "shareDecimals": 7,
+    "feeCeilingStroops": "10000000"
+  },
+  "authFixture": {
+    "unsignedXdr": "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",
+    "intent": {
+      "schema": 1,
+      "network_id": "cee0302d59844d32bdca915c8203dd44b33fbb7edc19051ea37abedf28ecd472",
+      "guard": "CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74",
+      "profile_hash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+      "intent_id": "77d4e6c72e17871cc735a7294f7a045b39da7fb9f4638118de6618e93f372189",
+      "owner": "GCAVTARGBNDGUCVBMXE2RU5OW5TBJZANS3UDPTMGDAECA3XYHGY77T5C",
+      "recipient": "GCAVTARGBNDGUCVBMXE2RU5OW5TBJZANS3UDPTMGDAECA3XYHGY77T5C",
+      "shares": "1000000000",
+      "min_withdraw": [
+        "1",
+        "1"
+      ],
+      "min_swap": [
+        "1",
+        "1"
+      ],
+      "min_receive": "1",
+      "valid_before_time": "1793023937",
+      "valid_before_ledger": 5400070
+    },
+    "observedAuthDigest": "77a141fe009b409db72f941ef38eaae75cabd52f62115206a016f3929a69c2f2"
+  },
+  "receipt": {
+    "hash": "bb8b93098ca08e20774dc906483487cc9fb887c4b9abea505698fa91baed21cd",
+    "observedAt": "2026-10-26T14:10:38.720Z",
+    "rawStatus": "SUCCESS",
+    "state": "succeeded",
+    "ledger": 5400050,
+    "actualFee": "581691",
+    "receipt": {
+      "intentId": "77d4e6c72e17871cc735a7294f7a045b39da7fb9f4638118de6618e93f372189",
+      "intentHash": "8755543fd641fd6e3ea223acf7418c227869017371b5b807df6adc12ca250e07",
+      "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+      "owner": "GCAVTARGBNDGUCVBMXE2RU5OW5TBJZANS3UDPTMGDAECA3XYHGY77T5C",
+      "sharesSpent": "1000000000",
+      "received": "992054606",
+      "withdrawn": [
+        "500000000",
+        "500000000"
+      ],
+      "swappedOut": [
+        "496027303",
+        "496027303"
+      ],
+      "ledger": 5400050,
+      "timestamp": "1793023837"
+    }
+  },
+  "rollback": {
+    "comparedEntries": 27,
+    "beforeDigest": "443017293e5abb5ef02f593d0c9c6faab37f67a93f743d41e10e53d6671c6e68",
+    "afterDigest": "443017293e5abb5ef02f593d0c9c6faab37f67a93f743d41e10e53d6671c6e68",
+    "everyEntryEqual": true,
+    "individualSwapMinima": [
+      "1",
+      "1"
+    ],
+    "totalMinimum": "2000000000",
+    "expectedContractError": 1012,
+    "observedDiagnosticErrors": [
+      {
+        "contract": 1012
+      }
+    ]
+  },
+  "resources": {
+    "ledger": 5400064,
+    "sorobanData": {
+      "ext": "v0",
+      "resources": {
+        "footprint": {
+          "read_only": [
+            {
+              "trustline": {
+                "account_id": "GCAVTARGBNDGUCVBMXE2RU5OW5TBJZANS3UDPTMGDAECA3XYHGY77T5C",
+                "asset": {
+                  "credit_alphanum4": {
+                    "asset_code": "MKA",
+                    "issuer": "GBILTNMJALYUJZF2FRO44Y5HEO73ENGQHC4FBTF5AX2IPPDDDEF5UOI6"
+                  }
+                }
+              }
+            },
+            {
+              "trustline": {
+                "account_id": "GCAVTARGBNDGUCVBMXE2RU5OW5TBJZANS3UDPTMGDAECA3XYHGY77T5C",
+                "asset": {
+                  "credit_alphanum4": {
+                    "asset_code": "MKB",
+                    "issuer": "GBILTNMJALYUJZF2FRO44Y5HEO73ENGQHC4FBTF5AX2IPPDDDEF5UOI6"
+                  }
+                }
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74",
+                "key": "ledger_key_contract_instance",
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CBATOXK3UEPQZXEWKDCPU2D26V27IEZYXASJJGE5ZOUAUHZH2DSDP7TW",
+                "key": "ledger_key_contract_instance",
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CBNLZ7V5BG4UYZ645GXY7MGYYE3I676K7AMLVNQAZI5NIWOOXO36ILZZ",
+                "key": "ledger_key_contract_instance",
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+                "key": "ledger_key_contract_instance",
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+                "key": "ledger_key_contract_instance",
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+                "key": "ledger_key_contract_instance",
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_code": {
+                "hash": "394539a70060065116930cdbb5d301f299621025985ba9693c7e58142e642539"
+              }
+            },
+            {
+              "contract_code": {
+                "hash": "515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269"
+              }
+            },
+            {
+              "contract_code": {
+                "hash": "aae8760f5eebdfefa66914cf98e4cf945f9bac4aa8e5613d4e9e2d423a438d8a"
+              }
+            },
+            {
+              "contract_code": {
+                "hash": "e2786bd6693a117ec0d9c4acfab940d74a99687ea26e5273342adbd802a68dd9"
+              }
+            }
+          ],
+          "read_write": [
+            {
+              "trustline": {
+                "account_id": "GCAVTARGBNDGUCVBMXE2RU5OW5TBJZANS3UDPTMGDAECA3XYHGY77T5C",
+                "asset": {
+                  "credit_alphanum12": {
+                    "asset_code": "MKOUT",
+                    "issuer": "GBILTNMJALYUJZF2FRO44Y5HEO73ENGQHC4FBTF5AX2IPPDDDEF5UOI6"
+                  }
+                }
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CAAROB2VSLSORTRLQ7OSND5YXFYQWOI4ZYQ5VHOXHGFINZCOVHAT4FD4",
+                "key": "ledger_key_contract_instance",
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Used"
+                    },
+                    {
+                      "address": "GCAVTARGBNDGUCVBMXE2RU5OW5TBJZANS3UDPTMGDAECA3XYHGY77T5C"
+                    },
+                    {
+                      "bytes": "d34b09ee2b7265d61b78be1cb8579c73ae1c6c33443cd75f9e14c11e51561944"
+                    }
+                  ]
+                },
+                "durability": "temporary"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CA7BC5WFIE4TEE7UATJQDWMLMO242B5S3GCVZOGXHYEDABXLZNKXBBWX",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "GCAVTARGBNDGUCVBMXE2RU5OW5TBJZANS3UDPTMGDAECA3XYHGY77T5C"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CA7BC5WFIE4TEE7UATJQDWMLMO242B5S3GCVZOGXHYEDABXLZNKXBBWX",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CA7BC5WFIE4TEE7UATJQDWMLMO242B5S3GCVZOGXHYEDABXLZNKXBBWX",
+                "key": "ledger_key_contract_instance",
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CA7BC5WFIE4TEE7UATJQDWMLMO242B5S3GCVZOGXHYEDABXLZNKXBBWX"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CDFKGGP5SRNNNCEAZ4ECGWAQT4O3BU3IUY65VF6QU5MYN4Z5Q7KYELZH"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CAAROB2VSLSORTRLQ7OSND5YXFYQWOI4ZYQ5VHOXHGFINZCOVHAT4FD4"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CA7BC5WFIE4TEE7UATJQDWMLMO242B5S3GCVZOGXHYEDABXLZNKXBBWX"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CAAROB2VSLSORTRLQ7OSND5YXFYQWOI4ZYQ5VHOXHGFINZCOVHAT4FD4"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+                "key": {
+                  "vec": [
+                    {
+                      "symbol": "Balance"
+                    },
+                    {
+                      "address": "CDFKGGP5SRNNNCEAZ4ECGWAQT4O3BU3IUY65VF6QU5MYN4Z5Q7KYELZH"
+                    }
+                  ]
+                },
+                "durability": "persistent"
+              }
+            },
+            {
+              "contract_data": {
+                "contract": "CDFKGGP5SRNNNCEAZ4ECGWAQT4O3BU3IUY65VF6QU5MYN4Z5Q7KYELZH",
+                "key": "ledger_key_contract_instance",
+                "durability": "persistent"
+              }
+            }
+          ]
+        },
+        "instructions": 22054037,
+        "disk_read_bytes": 356,
+        "write_bytes": 4848
+      },
+      "resource_fee": "62761"
+    },
+    "maximumSignedFee": "125622"
+  },
+  "replayProof": {
+    "first": "51e0f2e37283d72a3222635da7c841a96dbadba75c4cb092230172c0c1905293",
+    "second": "b74398f767e5f2eccb068a141f416d47edf154c4ad48794da1a2af64103d3d0b",
+    "intentId": "26db70f6116d34bbc49183662d05d71328909024da117466e8e0c74de5cd21fd",
+    "validBeforeLedger": 5400342,
+    "validBeforeTime": "1793025297",
+    "firstLedger": 5400321,
+    "secondLedger": 5400322,
+    "secondFee": "40809",
+    "markerLiveUntilLedger": 5401040,
+    "atMostOneCommitted": true,
+    "observedDiagnosticErrors": [
+      {
+        "contract": 1008
+      }
+    ]
+  }
+}

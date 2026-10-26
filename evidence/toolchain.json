@@ -1,0 +1,16 @@
+{
+  "guard_rust": "1.93.0",
+  "upstream_rust": "1.91.0",
+  "soroban_sdk": "29.0.1",
+  "stellar_cli": "28.1.0",
+  "stellar_cli_release_archive_sha256": "c1680deee94301d33ada7a17f98411e642a4248c727afbd2e43050d345746462",
+  "node": "24.22.1",
+  "pnpm": "12.15.0",
+  "postgres": "17.6",
+  "guard_wasm_sha256": "515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269",
+  "notes": [
+    "Stellar CLI refuses Rust1.91.0 for guard builds.",
+    "Guard uses Stellar CLI spec shaking.",
+    "CLI28.1.0 warns the protocol29 network settings snapshot may be incomplete."
+  ]
+}

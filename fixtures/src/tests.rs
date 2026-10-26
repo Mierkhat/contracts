@@ -288,6 +288,7 @@ fn replay_deadlines_vectors_and_donations() {
         .assets
         .iter()
         .chain(core::iter::once(f.settlement.clone()))
+        .chain(core::iter::once(f.vault.clone()))
     {
         token::Client::new(&f.env, &a)
             .mock_auths(&[MockAuth {
@@ -307,6 +308,7 @@ fn replay_deadlines_vectors_and_donations() {
         .assets
         .iter()
         .chain(core::iter::once(f.settlement.clone()))
+        .chain(core::iter::once(f.vault.clone()))
     {
         assert_eq!(token::Client::new(&f.env, &a).balance(&f.guard), 12345);
     }
@@ -457,4 +459,129 @@ fn cross_language_vectors_and_host_resource_observation() {
     let path =
         std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../evidence/host-fixture.json");
     std::fs::write(path, output).unwrap();
+}
+
+#[test]
+fn exclusive_deadlines_and_expired_marker_cannot_revive_an_intent() {
+    let f = fixture(false, false);
+    let mut i = f.intent.clone();
+    i.valid_before_ledger = 101;
+    i.valid_before_time = 1001;
+    authorize(&f, &i);
+    GuardClient::new(&f.env, &f.guard).execute_exit(&i);
+    f.env.as_contract(&f.guard, || {
+        f.env
+            .storage()
+            .temporary()
+            .remove(&Key::Used(f.owner.clone(), i.intent_id.clone()))
+    });
+    f.env.ledger().with_mut(|l| l.sequence_number = 101);
+    assert_eq!(
+        GuardClient::new(&f.env, &f.guard).try_execute_exit(&i),
+        Err(Ok(soroban_sdk::Error::from_contract_error(
+            Error::Expired as u32
+        )))
+    );
+    let f = fixture(false, false);
+    let mut i = f.intent.clone();
+    i.valid_before_time = 1000;
+    assert_eq!(
+        GuardClient::new(&f.env, &f.guard).try_execute_exit(&i),
+        Err(Ok(soroban_sdk::Error::from_contract_error(
+            Error::Expired as u32
+        )))
+    );
+}
+
+#[soroban_sdk::contract]
+struct AuthorizationProbe;
+#[soroban_sdk::contractimpl]
+impl AuthorizationProbe {
+    pub fn run(
+        env: Env,
+        router: Address,
+        input: Address,
+        output: Address,
+        pair: Address,
+        amount: i128,
+        authorized_amount: i128,
+        authorized_token: Address,
+    ) {
+        use soroban_sdk::auth::{ContractContext, InvokerContractAuthEntry, SubContractInvocation};
+        let me = env.current_contract_address();
+        env.authorize_as_current_contract(vec![
+            &env,
+            InvokerContractAuthEntry::Contract(SubContractInvocation {
+                context: ContractContext {
+                    contract: authorized_token,
+                    fn_name: soroban_sdk::symbol_short!("transfer"),
+                    args: (me.clone(), pair, authorized_amount).into_val(&env),
+                },
+                sub_invocations: vec![&env],
+            }),
+        ]);
+        mierkhat_guard::RouterClient::new(&env, &router).swap_exact_tokens_for_tokens(
+            &amount,
+            &1,
+            &vec![&env, input, output],
+            &me,
+            &1120,
+        );
+    }
+}
+#[test]
+fn nested_transfer_authorization_rejects_wrong_amount_and_token() {
+    let f = fixture(false, false);
+    let probe = f.env.register(AuthorizationProbe, ());
+    let input = f.assets.get(0).unwrap();
+    let pair = f
+        .profile
+        .assets
+        .get(0)
+        .unwrap()
+        .pair
+        .first()
+        .unwrap()
+        .address;
+    token::Client::new(&f.env, &input)
+        .mock_auths(&[MockAuth {
+            address: &f.owner,
+            invoke: &MockAuthInvoke {
+                contract: &input,
+                fn_name: "transfer",
+                args: (f.owner.clone(), probe.clone(), 1_000_000i128).into_val(&f.env),
+                sub_invokes: &[],
+            },
+        }])
+        .transfer(&f.owner, &probe, &1_000_000);
+    f.env.mock_auths(&[]);
+    let client = AuthorizationProbeClient::new(&f.env, &probe);
+    for (amount, token) in [
+        (999_999i128, input.clone()),
+        (1_000_000, f.settlement.clone()),
+    ] {
+        let before = f.env.to_snapshot().ledger;
+        assert!(client
+            .try_run(
+                &f.profile.router.address,
+                &input,
+                &f.settlement,
+                &pair,
+                &1_000_000,
+                &amount,
+                &token
+            )
+            .is_err());
+        assert_eq!(before, f.env.to_snapshot().ledger);
+    }
+    client.run(
+        &f.profile.router.address,
+        &input,
+        &f.settlement,
+        &pair,
+        &1_000_000,
+        &1_000_000,
+        &input,
+    );
+    assert_eq!(token::Client::new(&f.env, &input).balance(&probe), 0);
 }
