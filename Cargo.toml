@@ -1,0 +1,15 @@
+[workspace]
+members = ["guard", "fixtures"]
+resolver = "2"
+exclude = ["upstream/soroswap/contracts/pair", "upstream/soroswap/contracts/factory", "upstream/soroswap/contracts/router", "upstream/soroswap/contracts/token"]
+
+[workspace.dependencies]
+soroban-sdk = "=29.0.1"
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = "symbols"

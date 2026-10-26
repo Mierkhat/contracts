@@ -1,0 +1,8 @@
+[package]
+name = "mierkhat-fixtures"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+mierkhat-guard = { path = "../guard" }
