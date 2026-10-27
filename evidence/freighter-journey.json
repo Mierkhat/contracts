@@ -53,6 +53,22 @@
       "actualFee": "55723",
       "rawStatus": "SUCCESS",
       "observedAt": "2026-10-27T09:42:58.462Z"
+    },
+    "restoration": {
+      "hash": "22655cd429173be925364ab75c3c490ebdefac488eeb8909a810fa1dc4f569cf",
+      "observedAt": "2026-10-27T09:53:00.650Z",
+      "rawStatus": "SUCCESS",
+      "state": "succeeded",
+      "ledger": 5414238,
+      "actualFee": "1218"
+    },
+    "outageRecovery": {
+      "hash": "85783c51b6c0b5cfe63acbb2b09c0d6cd69c0a1093d3dd39ae7aa784d86846a4",
+      "state": "succeeded",
+      "ledger": 5414397,
+      "actualFee": "1218",
+      "rawStatus": "SUCCESS",
+      "observedAt": "2026-10-27T10:06:13.774Z"
     }
   },
   "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
@@ -128,6 +144,24 @@
     "shareBalanceSpent": true,
     "existingUnderlyingUnchanged": true,
     "settlementDeltaMatchesReceipt": true,
-    "reloadRecovery": true
+    "reloadRecovery": true,
+    "explicitRestorationTransactionConfirmed": true
+  },
+  "restorationScope": "Real RestoreFootprint submission for the pinned deployment. Entries were live; an archived-to-live transition is not claimed.",
+  "apiOutageRecovery": {
+    "hash": "85783c51b6c0b5cfe63acbb2b09c0d6cd69c0a1093d3dd39ae7aa784d86846a4",
+    "signedBytesRetainedInMemory": true,
+    "publicHashSavedBeforeSend": true,
+    "rpcNotFoundBeforeRetry": true,
+    "retriedIdenticalHash": true,
+    "noSecondWalletPrompt": true,
+    "observation": {
+      "hash": "85783c51b6c0b5cfe63acbb2b09c0d6cd69c0a1093d3dd39ae7aa784d86846a4",
+      "state": "succeeded",
+      "ledger": 5414397,
+      "actualFee": "1218",
+      "rawStatus": "SUCCESS",
+      "observedAt": "2026-10-27T10:06:13.774Z"
+    }
   }
 }
