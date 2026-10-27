@@ -35,7 +35,7 @@ python3 scripts/verify-artifacts.py
 
 The upstream builder uses exact commits/original locks, rejects modified source and records SHA-256 provenance. Builds stay in ignored `upstream/`, `artifacts/` and `target/`. Build the guard through Stellar CLI: SDK 29 requires specification shaking and this CLI requires Rust 1.93.0. Direct Cargo WASM output is not an equivalent replacement.
 
-Ten compiled-WASM tests cover one/two-asset exits, settlement as an underlying asset, exact nested authorization, replay/deadlines, intent mutations, donation preservation, donation-funded minimum rejection, whole-state rollback, executable changes and Rust/XDR vectors. Seeding fixtures may use test authorization helpers; guard execution uses explicit owner trees.
+Thirteen compiled-WASM tests cover one/two-asset exits, settlement as an underlying asset, exact nested authorization, replay/deadlines, intent mutations, donation preservation, donation-funded minimum rejection, whole-state rollback, executable changes and Rust/XDR vectors. Seeding fixtures may use test authorization helpers; guard execution uses explicit owner trees.
 
 ## Repository layout
 

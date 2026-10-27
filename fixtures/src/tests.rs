@@ -585,3 +585,164 @@ fn nested_transfer_authorization_rejects_wrong_amount_and_token() {
     );
     assert_eq!(token::Client::new(&f.env, &input).balance(&probe), 0);
 }
+
+// Exact storage-key encoding from the pinned upstream ABI. Only fixture state
+// is changed; get_assets, swaps and guard execution still use the real WASM.
+#[soroban_sdk::contracttype]
+#[derive(Clone)]
+enum VaultFixtureKey {
+    TotalAssets,
+    AssetStrategySet(u32),
+}
+#[soroban_sdk::contracttype]
+#[derive(Clone)]
+enum RouterFixtureKey {
+    Factory,
+}
+
+#[test]
+fn vault_configuration_mutations_reject_before_spending_and_preserve_all_state() {
+    for case in 0..6 {
+        let f = fixture(false, false);
+        let mut assets = vault::Client::new(&f.env, &f.vault).get_assets();
+        let mut first = assets.get(0).unwrap();
+        f.env.as_contract(&f.vault, || match case {
+            0 => f
+                .env
+                .storage()
+                .instance()
+                .set(&VaultFixtureKey::TotalAssets, &1u32),
+            1 => {
+                let second = assets.get(1).unwrap();
+                f.env
+                    .storage()
+                    .instance()
+                    .set(&VaultFixtureKey::AssetStrategySet(0), &second);
+                f.env
+                    .storage()
+                    .instance()
+                    .set(&VaultFixtureKey::AssetStrategySet(1), &first);
+            }
+            2 => {
+                first.address = f.settlement.clone();
+                f.env
+                    .storage()
+                    .instance()
+                    .set(&VaultFixtureKey::AssetStrategySet(0), &first);
+            }
+            3 | 4 => {
+                first.strategies = vec![
+                    &f.env,
+                    vault::Strategy {
+                        address: Address::generate(&f.env),
+                        name: String::from_str(&f.env, "Rejected fixture strategy"),
+                        paused: case == 4,
+                    },
+                ];
+                f.env
+                    .storage()
+                    .instance()
+                    .set(&VaultFixtureKey::AssetStrategySet(0), &first);
+            }
+            _ => {
+                assets.set(1, first.clone());
+                f.env
+                    .storage()
+                    .instance()
+                    .set(&VaultFixtureKey::AssetStrategySet(1), &first);
+            }
+        });
+        authorize(&f, &f.intent);
+        let before = f.env.to_snapshot().ledger;
+        assert_eq!(
+            GuardClient::new(&f.env, &f.guard).try_execute_exit(&f.intent),
+            Err(Ok(soroban_sdk::Error::from_contract_error(
+                Error::DependencyChanged as u32
+            ))),
+            "configuration case {case}",
+        );
+        assert_eq!(
+            before,
+            f.env.to_snapshot().ledger,
+            "configuration case {case}"
+        );
+    }
+}
+
+#[test]
+fn router_factory_and_each_executable_pin_change_rejects_before_spending() {
+    for case in 0..5 {
+        let f = fixture(false, false);
+        if case == 0 {
+            f.env.as_contract(&f.profile.router.address, || {
+                f.env
+                    .storage()
+                    .instance()
+                    .set(&RouterFixtureKey::Factory, &Address::generate(&f.env));
+            });
+        } else {
+            let address = match case {
+                1 => f.profile.factory.address.clone(),
+                2 => f.profile.router.address.clone(),
+                _ => {
+                    f.profile
+                        .assets
+                        .get(case - 3)
+                        .unwrap()
+                        .pair
+                        .get(0)
+                        .unwrap()
+                        .address
+                }
+            };
+            let replacement = f.env.deployer().upload_contract_wasm(vault::WASM);
+            f.env.as_contract(&address, || {
+                f.env.deployer().update_current_contract_wasm(replacement)
+            });
+        }
+        authorize(&f, &f.intent);
+        let before = f.env.to_snapshot().ledger;
+        assert_eq!(
+            GuardClient::new(&f.env, &f.guard).try_execute_exit(&f.intent),
+            Err(Ok(soroban_sdk::Error::from_contract_error(
+                Error::DependencyChanged as u32
+            ))),
+            "dependency case {case}",
+        );
+        assert_eq!(before, f.env.to_snapshot().ledger, "dependency case {case}");
+    }
+}
+
+#[test]
+fn corrupted_pair_asset_state_rolls_back_all_touched_state() {
+    for token_key in [0u32, 1u32] {
+        let f = fixture(false, false);
+        let address = f
+            .profile
+            .assets
+            .get(0)
+            .unwrap()
+            .pair
+            .get(0)
+            .unwrap()
+            .address;
+        let unrelated = f
+            .env
+            .register_stellar_asset_contract_v2(Address::generate(&f.env))
+            .address();
+        // Pinned Soroswap pair storage uses integer token keys 0 and 1.
+        f.env.as_contract(&address, || {
+            f.env.storage().instance().set(&token_key, &unrelated)
+        });
+        authorize(&f, &f.intent);
+        let before = f.env.to_snapshot().ledger;
+        assert!(GuardClient::new(&f.env, &f.guard)
+            .try_execute_exit(&f.intent)
+            .is_err());
+        assert_eq!(
+            before,
+            f.env.to_snapshot().ledger,
+            "pair token key {token_key}"
+        );
+    }
+}
