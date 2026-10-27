@@ -1,0 +1,133 @@
+{
+  "wallet": "Freighter",
+  "walletVersion": "5.49.0",
+  "network": "Test SDF Network ; September 2015",
+  "startedAt": "2026-10-27T09:37:35.344Z",
+  "operations": {
+    "trustlines": {
+      "hash": "58d6ac12c4026010128727f31294ba4a60d0aaafa02acecadcfc6e5cc770ddd3",
+      "observedAt": "2026-10-27T09:38:09.868Z",
+      "rawStatus": "SUCCESS",
+      "state": "succeeded",
+      "ledger": 5414060,
+      "actualFee": "300"
+    },
+    "faucet": {
+      "hash": "e1cf076c9b50bdb11f35897c4276fa4c67f7f84f6fdd7c1a0fe56153680094b2",
+      "observedAt": "2026-10-27T09:38:26.054Z",
+      "rawStatus": "SUCCESS",
+      "state": "succeeded",
+      "ledger": 5414063,
+      "actualFee": "300"
+    },
+    "deposit": {
+      "hash": "e54c7a7537f72c378d044c33dbfdf4fd989bcb8642ca31636bc0addabb86e5b1",
+      "observedAt": "2026-10-27T09:38:51.781Z",
+      "rawStatus": "SUCCESS",
+      "state": "succeeded",
+      "ledger": 5414068,
+      "actualFee": "266800"
+    },
+    "exit": {
+      "hash": "295cc18416587e0551bb8f98630f593b3c13a4522c1208297ac1ff3559de6c9e",
+      "state": "succeeded",
+      "ledger": 5414118,
+      "receipt": {
+        "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+        "ledger": 5414118,
+        "intentId": "0faa8cc72ad56e13e8b3dccc77c48db6cd50df75164c3d9fabf05d97af791e0f",
+        "received": "194322818",
+        "timestamp": "1793094177",
+        "withdrawn": [
+          "100000000",
+          "100000000"
+        ],
+        "intentHash": "f99acbab0fd2ea379dd271ced852291b159a002fdd0aa16be9151e5e9c862f89",
+        "swappedOut": [
+          "97161409",
+          "97161409"
+        ],
+        "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+        "sharesSpent": "200000000"
+      },
+      "actualFee": "55723",
+      "rawStatus": "SUCCESS",
+      "observedAt": "2026-10-27T09:42:58.462Z"
+    }
+  },
+  "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+  "funded": true,
+  "beforeExit": {
+    "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+    "funded": true,
+    "sequence": "23253098969432066",
+    "nativeBalanceRaw": "99999732900",
+    "sharesRaw": "200000000",
+    "tokens": [
+      {
+        "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+        "symbol": "MKA",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "9900000000"
+      },
+      {
+        "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+        "symbol": "MKB",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "9900000000"
+      },
+      {
+        "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+        "symbol": "MKOUT",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "10000000000"
+      }
+    ],
+    "ledger": 5414111
+  },
+  "afterExit": {
+    "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+    "funded": true,
+    "sequence": "23253098969432067",
+    "nativeBalanceRaw": "99999677177",
+    "sharesRaw": "0",
+    "tokens": [
+      {
+        "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+        "symbol": "MKA",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "9900000000"
+      },
+      {
+        "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+        "symbol": "MKB",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "9900000000"
+      },
+      {
+        "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+        "symbol": "MKOUT",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "10194322818"
+      }
+    ],
+    "ledger": 5414118
+  },
+  "completedAt": "2026-10-27T09:43:03.173Z",
+  "assertions": {
+    "genuineFreighterExtension": true,
+    "noInjectedWallet": true,
+    "noNetworkInterception": true,
+    "allTransactionsConfirmed": true,
+    "shareBalanceSpent": true,
+    "existingUnderlyingUnchanged": true,
+    "settlementDeltaMatchesReceipt": true,
+    "reloadRecovery": true
+  }
+}
