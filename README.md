@@ -65,6 +65,8 @@ Its WASM SHA-256 is `515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e
 - [Architecture and invariants](docs/ARCHITECTURE.md)
 - [Builds, deployment and ABI generation](docs/OPERATIONS.md)
 - [Evidence index](docs/EVIDENCE.md) and [release status](docs/RELEASE_STATUS.md)
+- [Testnet position routes](docs/POSITION_ROUTES.md)
+- [Mainnet candidates and existing DeFindex capabilities](docs/MAINNET_SCOPE.md)
 - [Backend and SDK](https://github.com/Mierkhat/backend) and [frontend](https://github.com/Mierkhat/frontend)
 
 ## Combined workspace
