@@ -1,0 +1,128 @@
+{
+  "network": "Test SDF Network ; September 2015",
+  "owner": "GDLAZY5STEPNQRWLO2YNA4HQCIJX7AXHSFXY5IDNFWXKFMKZ6IPX762E",
+  "startedAt": "2026-10-27T09:13:23.904Z",
+  "operations": {
+    "trustlines": {
+      "hash": "cc7cd5835f2aba68ada2d66a1b5f8399fcc08684e79c40a545866b3701719265",
+      "observedAt": "2026-10-27T09:20:10.226Z",
+      "rawStatus": "SUCCESS",
+      "state": "succeeded",
+      "ledger": 5413844,
+      "actualFee": "300"
+    },
+    "faucet": {
+      "hash": "6b128bb2779c1836788adf2de17a1584d4f34948ee2acbfb61107e138aac0c63",
+      "state": "succeeded",
+      "ledger": 5413847,
+      "actualFee": "300",
+      "rawStatus": "SUCCESS",
+      "observedAt": "2026-10-27T09:20:29.052Z"
+    },
+    "deposit": {
+      "hash": "b304a307050aa48eadad1f8c1c310d1bb5fbd63abe1e2cec61e3f90f8a1b5d27",
+      "observedAt": "2026-10-27T09:26:28.972Z",
+      "rawStatus": "SUCCESS",
+      "state": "succeeded",
+      "ledger": 5413920,
+      "actualFee": "266800"
+    },
+    "exit": {
+      "hash": "c2c0daa727beb8ae74e8a14abea6ad124da2f2ee23905cb4e337cc6ce6ba608e",
+      "state": "succeeded",
+      "ledger": 5413948,
+      "receipt": {
+        "owner": "GDLAZY5STEPNQRWLO2YNA4HQCIJX7AXHSFXY5IDNFWXKFMKZ6IPX762E",
+        "ledger": 5413948,
+        "intentId": "1f3884db5f64e56696bf433e0024beee4560f7398d355f9cbfd380688ff56315",
+        "received": "487489096",
+        "timestamp": "1793093327",
+        "withdrawn": [
+          "250000000",
+          "250000000"
+        ],
+        "intentHash": "e50342a35b60ee801aa02b227662485a474eb02907abd2779cab13e8d0377ad6",
+        "swappedOut": [
+          "243744548",
+          "243744548"
+        ],
+        "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+        "sharesSpent": "500000000"
+      },
+      "actualFee": "55724",
+      "rawStatus": "SUCCESS",
+      "observedAt": "2026-10-27T09:28:50.196Z"
+    }
+  },
+  "funded": true,
+  "beforeExit": {
+    "owner": "GDLAZY5STEPNQRWLO2YNA4HQCIJX7AXHSFXY5IDNFWXKFMKZ6IPX762E",
+    "funded": true,
+    "sequence": "23251943623229442",
+    "nativeBalanceRaw": "99999732900",
+    "sharesRaw": "500000000",
+    "tokens": [
+      {
+        "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+        "symbol": "MKA",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "9750000000"
+      },
+      {
+        "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+        "symbol": "MKB",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "9750000000"
+      },
+      {
+        "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+        "symbol": "MKOUT",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "10000000000"
+      }
+    ],
+    "ledger": 5413920
+  },
+  "afterExit": {
+    "owner": "GDLAZY5STEPNQRWLO2YNA4HQCIJX7AXHSFXY5IDNFWXKFMKZ6IPX762E",
+    "funded": true,
+    "sequence": "23251943623229443",
+    "nativeBalanceRaw": "99999677176",
+    "sharesRaw": "0",
+    "tokens": [
+      {
+        "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+        "symbol": "MKA",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "9750000000"
+      },
+      {
+        "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+        "symbol": "MKB",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "9750000000"
+      },
+      {
+        "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+        "symbol": "MKOUT",
+        "decimals": 7,
+        "trusted": true,
+        "balanceRaw": "10487489096"
+      }
+    ],
+    "ledger": 5413995
+  },
+  "completedAt": "2026-10-27T09:32:49.064Z",
+  "assertions": {
+    "realTestnet": true,
+    "allTransactionsConfirmed": true,
+    "entireShareBalanceSpent": true,
+    "existingUnderlyingBalancesUnchanged": true,
+    "settlementDeltaMatchesReceipt": true
+  }
+}
