@@ -1,0 +1,25 @@
+name: Verify
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: rustup toolchain install 1.91.0 --profile minimal --target wasm32v1-none
+      - run: rustup toolchain install 1.93.0 --profile minimal --component clippy --component rustfmt --target wasm32v1-none
+      - name: Install pinned Stellar CLI
+        run: |
+          curl -fsSL https://github.com/stellar/stellar-cli/releases/download/v28.1.0/stellar-cli-28.1.0-x86_64-unknown-linux-gnu.tar.gz -o /tmp/stellar-cli.tar.gz
+          echo "c1680deee94301d33ada7a17f98411e642a4248c727afbd2e43050d345746462  /tmp/stellar-cli.tar.gz" | sha256sum --check
+          mkdir -p "$HOME/.local/bin"
+          tar -xzf /tmp/stellar-cli.tar.gz -C "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - run: python3 scripts/build-upstream.py
+      - run: ./scripts/build-guard.sh
+      - run: cargo +1.93.0 test --workspace --locked
+      - run: cargo +1.93.0 fmt --all --check
+      - run: python3 scripts/verify-artifacts.py

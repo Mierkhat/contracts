@@ -1,23 +1,80 @@
 # Mierkhat contracts
 
-Immutable Soroban guard for a pinned strategy-free DeFindex vault and direct Soroswap conversions. No administrator, upgrade entry point, arbitrary call, approval or sweep method. The owner is the recipient. The guard preserves pre-existing owner assets and guard donations, checks exact shares and total received, and fails atomically when a signed condition is not met.
+[![Verify](https://github.com/Mierkhat/contracts/actions/workflows/verify.yml/badge.svg)](https://github.com/Mierkhat/contracts/actions/workflows/verify.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Guard: Rust1.93.0, SDK29.0.1, Stellar CLI28.1.0. The CLI rejects the originally proposed Rust1.91.0. SDK29 requires CLI specification shaking, so build the guard through Stellar CLI, not by bypassing its build-system check.
+Mierkhat's immutable Soroban guard redeems an exact number of DeFindex vault shares, converts withdrawn assets through direct Soroswap routes and sends one settlement token to the owner. The signed intent sets a minimum total receipt, individual bounds and validity deadlines. A failed condition rolls back contract changes atomically. Network fees and source sequence can still be consumed.
+
+The guard has no administrator, upgrade, sweep or pause entry point. It preserves the owner's existing underlying balances and tokens already held by the guard. The current profile supports a strategy-free vault with one or two assets and at most two direct swaps.
+
+## Stack
+
+| Component | Technology |
+| --- | --- |
+| Guard | Rust 1.93.0, Soroban SDK 29.0.1 |
+| Contract build | Stellar CLI 28.1.0, `wasm32v1-none` |
+| Pinned upstream builds | Rust 1.91.0, DeFindex and Soroswap original locks |
+| Verification | Compiled-WASM host tests, public testnet receipts |
+| Build tooling | Python 3, Bash, Git, Cargo |
+
+## Build and test
+
+Install rustup, Python 3, Git and the pinned Stellar CLI. Its installation and archive checksum are in [operations](docs/OPERATIONS.md).
 
 ```sh
-# At the project root (or this directory in an extracted repository)
-python3 contracts/scripts/build-upstream.py
+git clone https://github.com/Mierkhat/contracts.git
 cd contracts
+rustup toolchain install 1.91.0 --profile minimal --target wasm32v1-none
+rustup toolchain install 1.93.0 --profile minimal --component clippy --component rustfmt --target wasm32v1-none
+python3 scripts/build-upstream.py
 ./scripts/build-guard.sh
 cargo test --workspace --locked
+cargo fmt --all --check
+python3 scripts/verify-artifacts.py
 ```
 
-For a standalone contracts checkout, omit the leading `contracts/` in the first command. Upstream scripts require Rust1.91.0 plus the wasm32v1-none target, in addition to the guard's pinned toolchain. They clone only into ignored `upstream/`, build unchanged pinned repositories under original lockfiles, and save artifact provenance in `evidence/upstream-build.json`. Historical contractimport filenames ending in optimized.wasm are exact byte copies, not optimizer claims.
+The upstream builder uses exact commits/original locks, rejects modified source and records SHA-256 provenance. Builds stay in ignored `upstream/`, `artifacts/` and `target/`. Build the guard through Stellar CLI: SDK 29 requires specification shaking and this CLI requires Rust 1.93.0. Direct Cargo WASM output is not an equivalent replacement.
 
-`AssetRoute.pair` is a bounded zero-or-one vector on chain; JSON SDK transport uses null or a CodePin. This corrects SDK29's native Option<UDT> conversion compilation failure. Generated ABI is authoritative. Zero entries are permitted only for an underlying equal to settlement.
+Ten compiled-WASM tests cover one/two-asset exits, settlement as an underlying asset, exact nested authorization, replay/deadlines, intent mutations, donation preservation, donation-funded minimum rejection, whole-state rollback, executable changes and Rust/XDR vectors. Seeding fixtures may use test authorization helpers; guard execution uses explicit owner trees.
 
-Ten real compiled-WASM tests cover successful one/two-asset exits, settlement underlying, exact nested contract authorization, replay/TTL, deadline/vector/domain mutations, missing root/child-only authorization, donation preservation and donation-funded-minimum rejection, second-swap/final-total failure rollback over every ledger entry, runtime code changes and Rust/XDR vectors. Broad mocks are confined to seeding balances, liquidity and initial deposits; guard execution uses explicit owner trees.
+## Repository layout
 
-`evidence/testnet-fixture.json` contains a real protocol29 signed success and a ledger-confirmed failure of the final minimum with matching before/after hashes for all existing footprint entries. Only public data is committed. The dedicated testnet keys and retry envelopes are local ignored files. The reproducible harness lives in `backend/sdk/scripts/testnet-fixture.ts` in the combined checkout because it exercises the public SDK; it creates only named test assets and never uses a user's wallet funds.
+```text
+guard/        Immutable guard and signed types
+fixtures/     Real compiled-WASM integration tests
+scripts/      Pinned builds and artifact verification
+evidence/     Public receipts, provenance and network observations
+docs/         Invariants, deployment instructions and release status
+Cargo.lock    Locked Rust dependencies
+```
 
-These are engineering proofs, not an independent security review or an external integrator acceptance. The testnet profile remains disabled in public application registries. CLI28.1.0 is the current stable release but warns that protocol29 settings may be incomplete; complete resource-limit review and 20% worst-case headroom remain a release gate. Network fees and source sequence can be consumed by failed transactions.
+## Testnet deployment
+
+The enabled application profile uses this guard:
+
+```text
+CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74
+```
+
+Its WASM SHA-256 is `515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269`. Complete pins are in the [backend SDK registry](https://github.com/Mierkhat/backend/blob/main/sdk/deployments/index.json) and independently bundled in the frontend.
+
+[Public evidence](docs/EVIDENCE.md) records actual exits, rollback, replay rejection, Freighter approvals, crash recovery, historical lookup and resource headroom. These are engineering checks, not an independent audit. Mainnet is disabled; [release status](docs/RELEASE_STATUS.md) records remaining gates. Testnet assets have no monetary value. Resets and entry expiry can affect historical availability.
+
+## Documentation
+
+- [Architecture and invariants](docs/ARCHITECTURE.md)
+- [Builds, deployment and ABI generation](docs/OPERATIONS.md)
+- [Evidence index](docs/EVIDENCE.md) and [release status](docs/RELEASE_STATUS.md)
+- [Backend and SDK](https://github.com/Mierkhat/backend) and [frontend](https://github.com/Mierkhat/frontend)
+
+## Combined workspace
+
+In the original combined workspace, run `python3 contracts/scripts/build-upstream.py` from its root, then the remaining commands inside `contracts/`. Both layouts use the same source and locks.
+
+## Contributing and security
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Report sensitive issues through the [security policy](SECURITY.md).
+
+## License
+
+Mierkhat-authored code uses the [MIT license](LICENSE). Dependencies, upstream protocols, fonts where bundled and brand usage retain the terms described in [third-party notices](THIRD_PARTY_NOTICES.md).

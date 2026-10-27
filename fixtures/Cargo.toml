@@ -1,6 +1,9 @@
 [package]
 name = "mierkhat-fixtures"
 version = "0.1.0"
+license = "MIT"
+description = "Compiled-WASM integration tests for the Mierkhat guard"
+repository = "https://github.com/Mierkhat/contracts"
 edition = "2021"
 
 [dependencies]

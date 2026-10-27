@@ -1,6 +1,9 @@
 [package]
 name = "mierkhat-guard"
 version = "0.1.0"
+license = "MIT"
+description = "Immutable Soroban guard for bounded DeFindex withdrawals and direct Soroswap conversions"
+repository = "https://github.com/Mierkhat/contracts"
 edition = "2021"
 rust-version = "1.91"
 

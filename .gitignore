@@ -1,0 +1,15 @@
+node_modules/
+dist/
+target/
+.tooling/
+.env
+.env.*
+!.env.example
+coverage/
+playwright-report/
+test-results/
+test_snapshots/
+*.log
+.DS_Store
+upstream/
+artifacts/
