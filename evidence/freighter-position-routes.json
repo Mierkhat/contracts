@@ -1,0 +1,390 @@
+{
+  "startedAt": "2026-10-27T17:34:32.584Z",
+  "wallet": "Freighter 5.49.0",
+  "network": "Test SDF Network ; September 2015",
+  "operations": {
+    "deposit_second_vault": {
+      "hash": "b6aaf214a7c3098bf43078fa72581e520da387f9464e85a85c13c21b8f17cfed",
+      "epoch": "positions-mkout-mkout-v1",
+      "profileHash": "dff3dbe25d354c644ab2a81812e05ffb36df13a9b66f69d60084d32386525f91",
+      "stage": "confirmed",
+      "observation": {
+        "hash": "b6aaf214a7c3098bf43078fa72581e520da387f9464e85a85c13c21b8f17cfed",
+        "state": "succeeded",
+        "ledger": 5419776,
+        "actualFee": "260845",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T17:35:23.799Z"
+      }
+    },
+    "integration-fixture-v1": {
+      "hash": "c5ad506f98baddd9a8d38a450d06ddd7eaf28d9a2419cae6aefd2bbe28ea14f9",
+      "epoch": "integration-fixture-v1",
+      "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+      "stage": "confirmed",
+      "observation": {
+        "hash": "c5ad506f98baddd9a8d38a450d06ddd7eaf28d9a2419cae6aefd2bbe28ea14f9",
+        "state": "succeeded",
+        "ledger": 5419821,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5419821,
+          "intentId": "e1deb388eb90430398d0cf6f124a15d086429cc7abead81a57c5617aa9e0e46a",
+          "received": "936324",
+          "timestamp": "1793122745",
+          "withdrawn": [
+            "494999",
+            "494999"
+          ],
+          "intentHash": "41770de207432a027ffdf64ad76d706f12457186639769bf3775b21447f4a7f5",
+          "swappedOut": [
+            "468162",
+            "468162"
+          ],
+          "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+          "sharesSpent": "989999"
+        },
+        "actualFee": "55723",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T17:39:07.973Z"
+      },
+      "verified": {
+        "exactSharesSpent": true,
+        "receiptMatchesSelectedProfile": true,
+        "selectedTokenDeltaMatchesReceipt": true,
+        "otherExistingTokensUnchanged": true,
+        "receiptUsesSelectedToken": true
+      }
+    },
+    "positions-dual-mka-v1": {
+      "hash": "bba8d34f5b87eb40927c454eaed5a98f2efc74803fa1b6e0fda840ed85de10b5",
+      "epoch": "positions-dual-mka-v1",
+      "profileHash": "24c9ae09590df80f59754482dda5938e7d78c455ec72ae2a5d4c9a4c439408b5",
+      "stage": "confirmed",
+      "observation": {
+        "hash": "bba8d34f5b87eb40927c454eaed5a98f2efc74803fa1b6e0fda840ed85de10b5",
+        "state": "succeeded",
+        "ledger": 5419832,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5419832,
+          "intentId": "9efd354207a6c3effb11b03728391abefc0bf81061720eea0753db11f43861c2",
+          "received": "938842",
+          "timestamp": "1793122800",
+          "withdrawn": [
+            "470250",
+            "470250"
+          ],
+          "intentHash": "9a63456e07f28b6de1d2e136cb7d566fcce1db325b60dca2f5837da981b026fb",
+          "swappedOut": [
+            "0",
+            "468592"
+          ],
+          "profileHash": "24c9ae09590df80f59754482dda5938e7d78c455ec72ae2a5d4c9a4c439408b5",
+          "sharesSpent": "940500"
+        },
+        "actualFee": "475152",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T17:40:04.786Z"
+      },
+      "verified": {
+        "exactSharesSpent": true,
+        "receiptMatchesSelectedProfile": true,
+        "selectedTokenDeltaMatchesReceipt": true,
+        "otherExistingTokensUnchanged": true,
+        "receiptUsesSelectedToken": true
+      }
+    },
+    "positions-dual-mkb-v1": {
+      "hash": "46144d45752bc285d65bc215c5e454f1d08a80c625d97d4ac2302a836ac3cac2",
+      "epoch": "positions-dual-mkb-v1",
+      "profileHash": "92c88838eb6c3c0100ebae8d3dfa919af3f43d5cbaa593a3de2b9077cf89d4d8",
+      "stage": "confirmed",
+      "observation": {
+        "hash": "46144d45752bc285d65bc215c5e454f1d08a80c625d97d4ac2302a836ac3cac2",
+        "state": "succeeded",
+        "ledger": 5419846,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5419846,
+          "intentId": "eb41df5321f591c8784bb79b3839d8a778e9d0f54f6bc1a2adfbde645ddf0831",
+          "received": "892379",
+          "timestamp": "1793122870",
+          "withdrawn": [
+            "446737",
+            "446737"
+          ],
+          "intentHash": "c67529915350a383f92b1dfb06a85b1de15638ca0543eb36da657d80a59b4948",
+          "swappedOut": [
+            "445642",
+            "0"
+          ],
+          "profileHash": "92c88838eb6c3c0100ebae8d3dfa919af3f43d5cbaa593a3de2b9077cf89d4d8",
+          "sharesSpent": "893475"
+        },
+        "actualFee": "475147",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T22:18:40.105Z"
+      },
+      "priorHorizonObservation": {
+        "hash": "46144d45752bc285d65bc215c5e454f1d08a80c625d97d4ac2302a836ac3cac2",
+        "state": "succeeded",
+        "ledger": 5419846,
+        "provider": "horizon-testnet.stellar.org",
+        "actualFee": "475147",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T17:41:11.476Z"
+      }
+    },
+    "positions-dual-mkb-v1-receipt-regression": {
+      "hash": "2dc459e2d52863094331f6b57a0e03f923a8f7fbb44b5670909433918ac7c071",
+      "epoch": "positions-dual-mkb-v1",
+      "profileHash": "92c88838eb6c3c0100ebae8d3dfa919af3f43d5cbaa593a3de2b9077cf89d4d8",
+      "stage": "confirmed",
+      "balanceBefore": {
+        "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+        "funded": true,
+        "sequence": "23253098969432074",
+        "nativeBalanceRaw": "99998389003",
+        "sharesRaw": "16976025",
+        "tokens": [
+          {
+            "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+            "symbol": "MKA",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "9891038842"
+          },
+          {
+            "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+            "symbol": "MKB",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "9890992379"
+          }
+        ],
+        "ledger": 5423190
+      },
+      "observation": {
+        "hash": "2dc459e2d52863094331f6b57a0e03f923a8f7fbb44b5670909433918ac7c071",
+        "state": "succeeded",
+        "ledger": 5423203,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5423203,
+          "intentId": "86d9f1b74deec56712061477d63402428559a317867cf752855c57e754cce9cf",
+          "received": "847347",
+          "timestamp": "1793139655",
+          "withdrawn": [
+            "424400",
+            "424400"
+          ],
+          "intentHash": "b07605955b76bc66300680f054b96cdd41b04448e0ef7cbb3b168302540f652b",
+          "swappedOut": [
+            "422947",
+            "0"
+          ],
+          "profileHash": "92c88838eb6c3c0100ebae8d3dfa919af3f43d5cbaa593a3de2b9077cf89d4d8",
+          "sharesSpent": "848801"
+        },
+        "actualFee": "43796",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T22:20:57.552Z"
+      },
+      "verified": {
+        "exactSharesSpent": true,
+        "receiptMatchesSelectedProfile": true,
+        "selectedTokenDeltaMatchesReceipt": true,
+        "otherExistingTokensUnchanged": true,
+        "receiptUsesSelectedToken": true
+      }
+    },
+    "positions-mkout-mka-v1": {
+      "hash": "ba32b9b8e79e4d727ef6433e788376420fa3b4aaaad0c1e99ed63c4eab6f9e62",
+      "epoch": "positions-mkout-mka-v1",
+      "profileHash": "a385e2b68faa7eb3597da1fb3016176623ef1d903885c27f0fd8767ff823701d",
+      "stage": "confirmed",
+      "balanceBefore": {
+        "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+        "funded": true,
+        "sequence": "23253098969432075",
+        "nativeBalanceRaw": "99998345207",
+        "sharesRaw": "10194322",
+        "tokens": [
+          {
+            "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+            "symbol": "MKA",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "9891038842"
+          },
+          {
+            "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+            "symbol": "MKOUT",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "10185064820"
+          }
+        ],
+        "ledger": 5423237
+      },
+      "observation": {
+        "hash": "ba32b9b8e79e4d727ef6433e788376420fa3b4aaaad0c1e99ed63c4eab6f9e62",
+        "state": "succeeded",
+        "ledger": 5423248,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5423248,
+          "intentId": "901a5df9401ca7d6027c25265de76002618757814cf37402deaccf996b4f2fc6",
+          "received": "535704",
+          "timestamp": "1793139880",
+          "withdrawn": [
+            "509716"
+          ],
+          "intentHash": "aa82fe194c10471ee6eb48fe0110a20a4a36aa33644aad0105e428251bce2c30",
+          "swappedOut": [
+            "535704"
+          ],
+          "profileHash": "a385e2b68faa7eb3597da1fb3016176623ef1d903885c27f0fd8767ff823701d",
+          "sharesSpent": "509716"
+        },
+        "actualFee": "471708",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T22:24:47.372Z"
+      },
+      "verified": {
+        "exactSharesSpent": true,
+        "receiptMatchesSelectedProfile": true,
+        "selectedTokenDeltaMatchesReceipt": true,
+        "otherExistingTokensUnchanged": true,
+        "receiptUsesSelectedToken": true
+      }
+    },
+    "positions-mkout-mkb-v1": {
+      "hash": "552f3bef35fafe3cbc67c820c3f6c87b846ae9f1be929bf3b54da171b7dfda9a",
+      "epoch": "positions-mkout-mkb-v1",
+      "profileHash": "b9f19a9951f2274eeb6b6186e0c1f106d08fea438d35b0a010316e26ebabfc32",
+      "stage": "confirmed",
+      "balanceBefore": {
+        "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+        "funded": true,
+        "sequence": "23253098969432076",
+        "nativeBalanceRaw": "99997873499",
+        "sharesRaw": "9684606",
+        "tokens": [
+          {
+            "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+            "symbol": "MKB",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "9891839726"
+          },
+          {
+            "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+            "symbol": "MKOUT",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "10185064820"
+          }
+        ],
+        "ledger": 5423251
+      },
+      "observation": {
+        "hash": "552f3bef35fafe3cbc67c820c3f6c87b846ae9f1be929bf3b54da171b7dfda9a",
+        "state": "succeeded",
+        "ledger": 5423261,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5423261,
+          "intentId": "84d2806ce6d95aa2963906ca587a1045091f21ce4beec89748e46fa5153007e2",
+          "received": "508919",
+          "timestamp": "1793139945",
+          "withdrawn": [
+            "484230"
+          ],
+          "intentHash": "051a60177245f6e69e0820e33480a7eae387c25b18825f750f6e6c3fdd9213f8",
+          "swappedOut": [
+            "508919"
+          ],
+          "profileHash": "b9f19a9951f2274eeb6b6186e0c1f106d08fea438d35b0a010316e26ebabfc32",
+          "sharesSpent": "484230"
+        },
+        "actualFee": "471716",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T22:25:48.939Z"
+      },
+      "verified": {
+        "exactSharesSpent": true,
+        "receiptMatchesSelectedProfile": true,
+        "selectedTokenDeltaMatchesReceipt": true,
+        "otherExistingTokensUnchanged": true,
+        "receiptUsesSelectedToken": true
+      }
+    },
+    "positions-mkout-mkout-v1": {
+      "hash": "f07a49c33eddff58fc86fc4087819675afd506edebf6fa073fa42130c6a7150d",
+      "epoch": "positions-mkout-mkout-v1",
+      "profileHash": "dff3dbe25d354c644ab2a81812e05ffb36df13a9b66f69d60084d32386525f91",
+      "stage": "confirmed",
+      "balanceBefore": {
+        "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+        "funded": true,
+        "sequence": "23253098969432077",
+        "nativeBalanceRaw": "99997401783",
+        "sharesRaw": "9200376",
+        "tokens": [
+          {
+            "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+            "symbol": "MKOUT",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "10185064820"
+          }
+        ],
+        "ledger": 5423263
+      },
+      "observation": {
+        "hash": "f07a49c33eddff58fc86fc4087819675afd506edebf6fa073fa42130c6a7150d",
+        "state": "succeeded",
+        "ledger": 5423273,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5423273,
+          "intentId": "f0e4fe8a3a830b45e8e2e9ac2fbb8e1217a8d6ded6010281dbbbf8e59471cc2f",
+          "received": "460018",
+          "timestamp": "1793140005",
+          "withdrawn": [
+            "460018"
+          ],
+          "intentHash": "53e6385125d789d4cf6cb211d4b9b25e215fa6ec03c011e02a7e437c2b7d52b1",
+          "swappedOut": [
+            "0"
+          ],
+          "profileHash": "dff3dbe25d354c644ab2a81812e05ffb36df13a9b66f69d60084d32386525f91",
+          "sharesSpent": "460018"
+        },
+        "actualFee": "365186",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T22:26:50.315Z"
+      },
+      "verified": {
+        "exactSharesSpent": true,
+        "receiptMatchesSelectedProfile": true,
+        "selectedTokenDeltaMatchesReceipt": true,
+        "otherExistingTokensUnchanged": true,
+        "receiptUsesSelectedToken": true
+      }
+    }
+  },
+  "assertions": {
+    "onePositionPerVaultDespiteThreeOutputs": true,
+    "existingHorizonOnlyConfirmationEnrichedWithoutResubmission": true,
+    "selectorsReadableAndFitSixThemeWidthCombinations": true,
+    "allSixRealRoutesConfirmed": true,
+    "outputChangeInvalidatesReviewAndQuote": true,
+    "noInjectedWalletOrNetworkInterception": true,
+    "directRedemptionIsExplicitlyLabelledWithoutASwap": true
+  },
+  "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+  "completedAt": "2026-10-27T22:33:24.951Z"
+}

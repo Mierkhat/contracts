@@ -4,6 +4,8 @@ These files contain public observations, never private keys or exact retry envel
 
 | Evidence | Observation |
 | --- | --- |
+| [testnet-position-routes.json](../evidence/testnet-position-routes.json) | Actual second vault, direct-pair liquidity and immutable output-profile deployments |
+| [freighter-position-routes.json](../evidence/freighter-position-routes.json) | Two actual vault positions, all six output routes, genuine Freighter approvals, exact share/token balances, receipt recovery and six responsive/contrast captures |
 | [testnet-fixture.json](../evidence/testnet-fixture.json) | Signed success, minimum error 1012 with touched-state rollback, replay error 1008 and marker TTL |
 | [testnet-journey.json](../evidence/testnet-journey.json) | Funding, trustlines, issuer payments, deposit, guarded exit and balance invariants |
 | [freighter-identity-change.json](../evidence/freighter-identity-change.json) | Actual account switch during a pending signing prompt, late original approval discarded, zero submissions and connected keyboard tabs |
