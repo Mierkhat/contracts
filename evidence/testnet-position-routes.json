@@ -1,0 +1,312 @@
+{
+  "operations": {
+    "liquidity_mka_mkb": {
+      "hash": "6835851136abf15ba0e47ca7dc1551d2f553be93f0c150344d0a4223823c33b8",
+      "ledger": 5419684,
+      "returnValue": "AAAAEAAAAAEAAAADAAAACgAAAAAAAAAAAAAAADUMUoAAAAAKAAAAAAAAAAAAAAAANQxSgAAAAAoAAAAAAAAAAAAAAAA1DE6Y"
+    },
+    "deploy_mkout_vault": {
+      "hash": "58714b8014d1de172ea2e583f3a1c485fccff552bcba79fc81e52c45507aaf4d",
+      "ledger": 5419685,
+      "returnValue": "AAAAEgAAAAGC1PAj3OfgbzOl56RE2dObSG1VgszprLy3RrEodPro8g=="
+    },
+    "seed_mkout_vault": {
+      "hash": "6e2700276a34254b256bcdab0cdac7a4d0fa70e973ed415af838445b9293ad86",
+      "ledger": 5419687,
+      "returnValue": "AAAAEAAAAAEAAAADAAAAEAAAAAEAAAABAAAACgAAAAAAAAAAAAAAAATHtzYAAAAKAAAAAAAAAAAAAAAABMe3NgAAAAE="
+    },
+    "guard_dual_mka": {
+      "hash": "b83f3d1ef94e7d59ecbefd0af5ea549868ad6b086b5a74d482c678d8193dcfdc",
+      "ledger": 5419689,
+      "returnValue": "AAAAEgAAAAE373EuG17Y+vHisRqo3yVatyocZNOFq8L+tt2qZ0aCJA=="
+    },
+    "guard_dual_mkb": {
+      "hash": "8446322b7a85f2236348b5f475265f1013e1dccbe26da08b415a26c78871369f",
+      "ledger": 5419691,
+      "returnValue": "AAAAEgAAAAGZpjPLAlil3ae25nB/P0YPKW0bSvoiDElQZ5VOGhf2QQ=="
+    },
+    "guard_mkout_mka": {
+      "hash": "2a3822b11fb2cae8d074e105a3a11a903ab984773d8e88540ad9bc2a75d572cd",
+      "ledger": 5419693,
+      "returnValue": "AAAAEgAAAAGdJfVheF81hQ4jrAuJHw/veu+XxSGnPqbt3J7zxFiZqQ=="
+    },
+    "guard_mkout_mkb": {
+      "hash": "da87a511c26cc2d4065478118d32a58e9835ed6d308eb88e692a66a2519abb1c",
+      "ledger": 5419695,
+      "returnValue": "AAAAEgAAAAGdHAwA+x98kE3NCKrK683+lhfJXIHWaX/1kVMYctkAMQ=="
+    },
+    "guard_mkout_mkout": {
+      "hash": "3bb61e174e286fa452db9399be2b0f242ff989b06a94d514df46f174bfa872ed",
+      "ledger": 5419697,
+      "returnValue": "AAAAEgAAAAGG2M93kp0tJvbFFS9h1kcT28vNwhoneuKNM5lDKlbxfg=="
+    }
+  },
+  "bundles": [
+    {
+      "environment": "testnet",
+      "epoch": "positions-dual-mka-v1",
+      "enabled": true,
+      "networkPassphrase": "Test SDF Network ; September 2015",
+      "guard": "CA3664JODNPNR6XR4KYRVKG7EVNLOKQ4MTJYLK6C723N3KTHI2BCJD3C",
+      "guardWasmHash": "515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269",
+      "profileHash": "24c9ae09590df80f59754482dda5938e7d78c455ec72ae2a5d4c9a4c439408b5",
+      "profile": {
+        "schema": 1,
+        "network_id": "cee0302d59844d32bdca915c8203dd44b33fbb7edc19051ea37abedf28ecd472",
+        "vault": {
+          "address": "CA7BC5WFIE4TEE7UATJQDWMLMO242B5S3GCVZOGXHYEDABXLZNKXBBWX",
+          "wasm_hash": "e2786bd6693a117ec0d9c4acfab940d74a99687ea26e5273342adbd802a68dd9"
+        },
+        "router": {
+          "address": "CBATOXK3UEPQZXEWKDCPU2D26V27IEZYXASJJGE5ZOUAUHZH2DSDP7TW",
+          "wasm_hash": "394539a70060065116930cdbb5d301f299621025985ba9693c7e58142e642539"
+        },
+        "factory": {
+          "address": "CBNLZ7V5BG4UYZ645GXY7MGYYE3I676K7AMLVNQAZI5NIWOOXO36ILZZ",
+          "wasm_hash": "93ff0f4a634feceae6fb21b587b9508b58cbce8100da2eed0f53601ecf0533a6"
+        },
+        "settlement": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+        "assets": [
+          {
+            "asset": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+            "pair": null
+          },
+          {
+            "asset": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+            "pair": {
+              "address": "CBZZUUXYF5IXJ3E46E66IUJP3M6C6HT3I5E3LUSQKRY2W65FSKRJ5OF2",
+              "wasm_hash": "aae8760f5eebdfefa66914cf98e4cf945f9bac4aa8e5613d4e9e2d423a438d8a"
+            }
+          }
+        ],
+        "max_seconds": 300,
+        "max_ledgers": 64
+      },
+      "tokens": [
+        {
+          "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+          "symbol": "MKA",
+          "decimals": 7
+        },
+        {
+          "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+          "symbol": "MKB",
+          "decimals": 7
+        }
+      ],
+      "vaultName": "Mierkhat testnet vault",
+      "shareDecimals": 7,
+      "feeCeilingStroops": "10000000",
+      "reviewed": true
+    },
+    {
+      "environment": "testnet",
+      "epoch": "positions-dual-mkb-v1",
+      "enabled": true,
+      "networkPassphrase": "Test SDF Network ; September 2015",
+      "guard": "CCM2MM6LAJMKLXNHW3THA7Z7IYHSS3I3JL5CEDCJKBTZKTQ2C73EDDFB",
+      "guardWasmHash": "515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269",
+      "profileHash": "92c88838eb6c3c0100ebae8d3dfa919af3f43d5cbaa593a3de2b9077cf89d4d8",
+      "profile": {
+        "schema": 1,
+        "network_id": "cee0302d59844d32bdca915c8203dd44b33fbb7edc19051ea37abedf28ecd472",
+        "vault": {
+          "address": "CA7BC5WFIE4TEE7UATJQDWMLMO242B5S3GCVZOGXHYEDABXLZNKXBBWX",
+          "wasm_hash": "e2786bd6693a117ec0d9c4acfab940d74a99687ea26e5273342adbd802a68dd9"
+        },
+        "router": {
+          "address": "CBATOXK3UEPQZXEWKDCPU2D26V27IEZYXASJJGE5ZOUAUHZH2DSDP7TW",
+          "wasm_hash": "394539a70060065116930cdbb5d301f299621025985ba9693c7e58142e642539"
+        },
+        "factory": {
+          "address": "CBNLZ7V5BG4UYZ645GXY7MGYYE3I676K7AMLVNQAZI5NIWOOXO36ILZZ",
+          "wasm_hash": "93ff0f4a634feceae6fb21b587b9508b58cbce8100da2eed0f53601ecf0533a6"
+        },
+        "settlement": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+        "assets": [
+          {
+            "asset": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+            "pair": {
+              "address": "CBZZUUXYF5IXJ3E46E66IUJP3M6C6HT3I5E3LUSQKRY2W65FSKRJ5OF2",
+              "wasm_hash": "aae8760f5eebdfefa66914cf98e4cf945f9bac4aa8e5613d4e9e2d423a438d8a"
+            }
+          },
+          {
+            "asset": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+            "pair": null
+          }
+        ],
+        "max_seconds": 300,
+        "max_ledgers": 64
+      },
+      "tokens": [
+        {
+          "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+          "symbol": "MKA",
+          "decimals": 7
+        },
+        {
+          "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+          "symbol": "MKB",
+          "decimals": 7
+        }
+      ],
+      "vaultName": "Mierkhat testnet vault",
+      "shareDecimals": 7,
+      "feeCeilingStroops": "10000000",
+      "reviewed": true
+    },
+    {
+      "environment": "testnet",
+      "epoch": "positions-mkout-mka-v1",
+      "enabled": true,
+      "networkPassphrase": "Test SDF Network ; September 2015",
+      "guard": "CCOSL5LBPBPTLBIOEOWAXCI7B7XXV34XYUQ2OPVG5XOJ546ELCM2SAZ7",
+      "guardWasmHash": "515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269",
+      "profileHash": "a385e2b68faa7eb3597da1fb3016176623ef1d903885c27f0fd8767ff823701d",
+      "profile": {
+        "schema": 1,
+        "network_id": "cee0302d59844d32bdca915c8203dd44b33fbb7edc19051ea37abedf28ecd472",
+        "vault": {
+          "address": "CCBNJ4BD3TT6A3ZTUXT2IRGZ2ONUQ3KVQLGOTLF4W5DLCKDU7LUPEJIG",
+          "wasm_hash": "e2786bd6693a117ec0d9c4acfab940d74a99687ea26e5273342adbd802a68dd9"
+        },
+        "router": {
+          "address": "CBATOXK3UEPQZXEWKDCPU2D26V27IEZYXASJJGE5ZOUAUHZH2DSDP7TW",
+          "wasm_hash": "394539a70060065116930cdbb5d301f299621025985ba9693c7e58142e642539"
+        },
+        "factory": {
+          "address": "CBNLZ7V5BG4UYZ645GXY7MGYYE3I676K7AMLVNQAZI5NIWOOXO36ILZZ",
+          "wasm_hash": "93ff0f4a634feceae6fb21b587b9508b58cbce8100da2eed0f53601ecf0533a6"
+        },
+        "settlement": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+        "assets": [
+          {
+            "asset": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+            "pair": {
+              "address": "CAAROB2VSLSORTRLQ7OSND5YXFYQWOI4ZYQ5VHOXHGFINZCOVHAT4FD4",
+              "wasm_hash": "aae8760f5eebdfefa66914cf98e4cf945f9bac4aa8e5613d4e9e2d423a438d8a"
+            }
+          }
+        ],
+        "max_seconds": 300,
+        "max_ledgers": 64
+      },
+      "tokens": [
+        {
+          "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+          "symbol": "MKA",
+          "decimals": 7
+        },
+        {
+          "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+          "symbol": "MKOUT",
+          "decimals": 7
+        }
+      ],
+      "vaultName": "Mierkhat MKOUT vault",
+      "shareDecimals": 7,
+      "feeCeilingStroops": "10000000",
+      "reviewed": true
+    },
+    {
+      "environment": "testnet",
+      "epoch": "positions-mkout-mkb-v1",
+      "enabled": true,
+      "networkPassphrase": "Test SDF Network ; September 2015",
+      "guard": "CCORYDAA7MPXZECNZUEKVSXLZX7JMF6JLSA5M2L76WIVGGDS3EADCICL",
+      "guardWasmHash": "515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269",
+      "profileHash": "b9f19a9951f2274eeb6b6186e0c1f106d08fea438d35b0a010316e26ebabfc32",
+      "profile": {
+        "schema": 1,
+        "network_id": "cee0302d59844d32bdca915c8203dd44b33fbb7edc19051ea37abedf28ecd472",
+        "vault": {
+          "address": "CCBNJ4BD3TT6A3ZTUXT2IRGZ2ONUQ3KVQLGOTLF4W5DLCKDU7LUPEJIG",
+          "wasm_hash": "e2786bd6693a117ec0d9c4acfab940d74a99687ea26e5273342adbd802a68dd9"
+        },
+        "router": {
+          "address": "CBATOXK3UEPQZXEWKDCPU2D26V27IEZYXASJJGE5ZOUAUHZH2DSDP7TW",
+          "wasm_hash": "394539a70060065116930cdbb5d301f299621025985ba9693c7e58142e642539"
+        },
+        "factory": {
+          "address": "CBNLZ7V5BG4UYZ645GXY7MGYYE3I676K7AMLVNQAZI5NIWOOXO36ILZZ",
+          "wasm_hash": "93ff0f4a634feceae6fb21b587b9508b58cbce8100da2eed0f53601ecf0533a6"
+        },
+        "settlement": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+        "assets": [
+          {
+            "asset": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+            "pair": {
+              "address": "CDFKGGP5SRNNNCEAZ4ECGWAQT4O3BU3IUY65VF6QU5MYN4Z5Q7KYELZH",
+              "wasm_hash": "aae8760f5eebdfefa66914cf98e4cf945f9bac4aa8e5613d4e9e2d423a438d8a"
+            }
+          }
+        ],
+        "max_seconds": 300,
+        "max_ledgers": 64
+      },
+      "tokens": [
+        {
+          "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+          "symbol": "MKB",
+          "decimals": 7
+        },
+        {
+          "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+          "symbol": "MKOUT",
+          "decimals": 7
+        }
+      ],
+      "vaultName": "Mierkhat MKOUT vault",
+      "shareDecimals": 7,
+      "feeCeilingStroops": "10000000",
+      "reviewed": true
+    },
+    {
+      "environment": "testnet",
+      "epoch": "positions-mkout-mkout-v1",
+      "enabled": true,
+      "networkPassphrase": "Test SDF Network ; September 2015",
+      "guard": "CCDNRT3XSKOS2JXWYUKS6YOWI4J5XS6NYINCO6XCRUZZSQZKK3YX4I2M",
+      "guardWasmHash": "515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e91269",
+      "profileHash": "dff3dbe25d354c644ab2a81812e05ffb36df13a9b66f69d60084d32386525f91",
+      "profile": {
+        "schema": 1,
+        "network_id": "cee0302d59844d32bdca915c8203dd44b33fbb7edc19051ea37abedf28ecd472",
+        "vault": {
+          "address": "CCBNJ4BD3TT6A3ZTUXT2IRGZ2ONUQ3KVQLGOTLF4W5DLCKDU7LUPEJIG",
+          "wasm_hash": "e2786bd6693a117ec0d9c4acfab940d74a99687ea26e5273342adbd802a68dd9"
+        },
+        "router": {
+          "address": "CBATOXK3UEPQZXEWKDCPU2D26V27IEZYXASJJGE5ZOUAUHZH2DSDP7TW",
+          "wasm_hash": "394539a70060065116930cdbb5d301f299621025985ba9693c7e58142e642539"
+        },
+        "factory": {
+          "address": "CBNLZ7V5BG4UYZ645GXY7MGYYE3I676K7AMLVNQAZI5NIWOOXO36ILZZ",
+          "wasm_hash": "93ff0f4a634feceae6fb21b587b9508b58cbce8100da2eed0f53601ecf0533a6"
+        },
+        "settlement": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+        "assets": [
+          {
+            "asset": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+            "pair": null
+          }
+        ],
+        "max_seconds": 300,
+        "max_ledgers": 64
+      },
+      "tokens": [
+        {
+          "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+          "symbol": "MKOUT",
+          "decimals": 7
+        }
+      ],
+      "vaultName": "Mierkhat MKOUT vault",
+      "shareDecimals": 7,
+      "feeCeilingStroops": "10000000",
+      "reviewed": true
+    }
+  ],
+  "verifiedAt": "2026-10-27T17:28:49.665Z"
+}
