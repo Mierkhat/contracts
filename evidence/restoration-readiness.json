@@ -1,0 +1,100 @@
+{
+  "checkedAt": "2026-10-27T15:26:30.623Z",
+  "network": "Test SDF Network ; September 2015",
+  "epoch": "integration-fixture-v1",
+  "guard": "CA42L7LDVJMI2BXBNRURXF6K6MVCTBZGND6RP5NYFEGIGWR3HTLNTT74",
+  "before": {
+    "ledger": 5418229,
+    "entries": [
+      {
+        "key": "AAAABgAAAAE5pf1jqliNBuFsaRuXyvMqKYcmaP0X9bgpDINaOzzW2QAAABQAAAAB",
+        "kind": "contractData",
+        "status": "live",
+        "liveUntilLedger": 5918423
+      },
+      {
+        "key": "AAAABgAAAAE+EXbFQTkyE/QE0wHZi2O1zQey2YVcuNc+CDAG68tVcAAAABQAAAAB",
+        "kind": "contractData",
+        "status": "live",
+        "liveUntilLedger": 5936610
+      },
+      {
+        "key": "AAAABgAAAAFBN11boR8M3JZQxPpoevV19BM4uCSUmJ3LqAofJ9DkNwAAABQAAAAB",
+        "kind": "contractData",
+        "status": "live",
+        "liveUntilLedger": 5936617
+      },
+      {
+        "key": "AAAABgAAAAFavP69CblMZ9zpr4+w2ME2j3/K+Bi6tgDKOtRZzru35AAAABQAAAAB",
+        "kind": "contractData",
+        "status": "live",
+        "liveUntilLedger": 5918408
+      },
+      {
+        "key": "AAAABgAAAAEBFwdVkuToziuH3SaPuLlxCzkcziHandc5iobkTqnBPgAAABQAAAAB",
+        "kind": "contractData",
+        "status": "live",
+        "liveUntilLedger": 5936617
+      },
+      {
+        "key": "AAAABgAAAAHKoxn9lFrWiIDPCCNYEJ8dsNNopj3al9CnWYbzPYfVggAAABQAAAAB",
+        "kind": "contractData",
+        "status": "live",
+        "liveUntilLedger": 5936617
+      },
+      {
+        "key": "AAAABgAAAAGIKbM8elCD0qKkzFq4LU9sDqYSFM6UQFdC2U1ZWLGK1AAAABQAAAAB",
+        "kind": "contractData",
+        "status": "live",
+        "liveUntilLedger": 5539170
+      },
+      {
+        "key": "AAAABgAAAAFbW2emC9xESWkYUVzLrIAlO+8q//YjXwEOlN5o2NYltAAAABQAAAAB",
+        "kind": "contractData",
+        "status": "live",
+        "liveUntilLedger": 5539170
+      },
+      {
+        "key": "AAAABgAAAAHBFAJnA7g5yMfI4QhE/z0d52hudVwq4QhfB3qU2zXb6gAAABQAAAAB",
+        "kind": "contractData",
+        "status": "live",
+        "liveUntilLedger": 5539177
+      },
+      {
+        "key": "AAAAB1Fbz/1u51xRz0/2WwVHUeVipfatiBTM5Mm5VylC6RJp",
+        "kind": "contractCode",
+        "status": "live",
+        "liveUntilLedger": 5918423
+      },
+      {
+        "key": "AAAAB+J4a9ZpOhF+wNnErPq5QNdKmWh+om5SczQq29gCpo3Z",
+        "kind": "contractCode",
+        "status": "live",
+        "liveUntilLedger": 5936610
+      },
+      {
+        "key": "AAAABzlFOacAYAZRFpMM27XTAfKZYhAlmFupaTx+WBQuZCU5",
+        "kind": "contractCode",
+        "status": "live",
+        "liveUntilLedger": 5936617
+      },
+      {
+        "key": "AAAAB5P/D0pjT+zq5vshtYe5UItYy86BANou7Q9TYB7PBTOm",
+        "kind": "contractCode",
+        "status": "live",
+        "liveUntilLedger": 5918408
+      },
+      {
+        "key": "AAAAB6rodg9e69/vpmkUz5jkz5Rfm6xKqOVhPU6eLUI6Q42K",
+        "kind": "contractCode",
+        "status": "live",
+        "liveUntilLedger": 5936617
+      }
+    ]
+  },
+  "earliestExpiryLedger": 5539171,
+  "missingCount": 0,
+  "status": "waiting_for_actual_entry_expiry",
+  "archivedToLiveTransitionVerified": false,
+  "note": "A missing RPC entry alone does not prove archival. TTL cannot be shortened on public testnet. Live entries do not satisfy expired-state acceptance."
+}

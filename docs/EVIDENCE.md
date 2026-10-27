@@ -7,6 +7,8 @@ These files contain public observations, never private keys or exact retry envel
 | [testnet-fixture.json](../evidence/testnet-fixture.json) | Signed success, minimum error 1012 with touched-state rollback, replay error 1008 and marker TTL |
 | [testnet-journey.json](../evidence/testnet-journey.json) | Funding, trustlines, issuer payments, deposit, guarded exit and balance invariants |
 | [freighter-journey.json](../evidence/freighter-journey.json) | Real extension approvals, receipt, separate restore and API outage retry |
+| [testnet-recovery-matrix.json](../evidence/testnet-recovery-matrix.json) | Four actual guarded-exit response-loss, provider-concurrency and post-send process-kill boundaries with full balance/digest checks |
+| [restoration-readiness.json](../evidence/restoration-readiness.json) | Actual fixed-entry TTLs and earliest expiry; explicitly waiting while entries remain live |
 | [testnet-crash-recovery.json](../evidence/testnet-crash-recovery.json) | Durable admission, process kill, same-hash recovery and confirmation |
 | [archive-observation.json](../evidence/archive-observation.json) | Horizon recovery outside RPC retention |
 | [testnet-resource-headroom.json](../evidence/testnet-resource-headroom.json) | Actual two-asset/two-swap metrics against network limits |

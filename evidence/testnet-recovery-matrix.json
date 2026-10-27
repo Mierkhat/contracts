@@ -1,0 +1,177 @@
+{
+  "checkedAt": "2026-10-27T15:35:53.324Z",
+  "cases": [
+    {
+      "name": "http_response_lost_after_durable_admission",
+      "responseDropped": true,
+      "concurrentRetries": 2,
+      "durableAttempts": 1,
+      "hash": "2acb689fe0f130bb99220b5bb9641b18d80db11d931c3ff548f19bb410d1ab74",
+      "signedEnvelopeDigest": "9995c0349dc8cbd9881fff6fb39b0b99915388b4ec686864aba1a4c6d890ebcb",
+      "observation": {
+        "hash": "2acb689fe0f130bb99220b5bb9641b18d80db11d931c3ff548f19bb410d1ab74",
+        "observedAt": "2026-10-27T15:36:39.695Z",
+        "rawStatus": "SUCCESS",
+        "state": "succeeded",
+        "ledger": 5418351,
+        "actualFee": "55723",
+        "receipt": {
+          "intentId": "6dd83bd623766b84373ed4e7e190ca79a796454165cff6bfefcc5ccf9a4c4b6f",
+          "intentHash": "3d95e271f88c1c044f2d4555f633a24de70d772c4a2d18d48ce777b5953abd49",
+          "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+          "owner": "GDLAZY5STEPNQRWLO2YNA4HQCIJX7AXHSFXY5IDNFWXKFMKZ6IPX762E",
+          "sharesSpent": "42347974",
+          "received": "41033772",
+          "withdrawn": [
+            "21173987",
+            "21173987"
+          ],
+          "swappedOut": [
+            "20516886",
+            "20516886"
+          ],
+          "ledger": 5418351,
+          "timestamp": "1793115395"
+        }
+      },
+      "exactShares": true,
+      "existingUnderlyingUnchanged": true,
+      "settlementDeltaMatchesReceipt": true,
+      "terminalBytesRemoved": true
+    },
+    {
+      "name": "independent_provider_concurrent_submit_and_workers",
+      "sends": [
+        {
+          "endpoint": "https://soroban-testnet.stellar.org",
+          "status": "PENDING"
+        },
+        {
+          "endpoint": "https://stellar-testnet-soroban.gateway.tatum.io",
+          "status": "PENDING"
+        }
+      ],
+      "bothProvidersAcknowledged": true,
+      "workerProcesses": 2,
+      "hash": "695e99636443d5f6666300a2042db43e53d62c8e86a3175fd21abdb06a128ea2",
+      "signedEnvelopeDigest": "0e21cebfdcb2fc0ebe258f9dead39fac486892da2a82c43f1a43398277b3e04c",
+      "observation": {
+        "hash": "695e99636443d5f6666300a2042db43e53d62c8e86a3175fd21abdb06a128ea2",
+        "state": "succeeded",
+        "ledger": 5418359,
+        "receipt": {
+          "owner": "GDLAZY5STEPNQRWLO2YNA4HQCIJX7AXHSFXY5IDNFWXKFMKZ6IPX762E",
+          "ledger": 5418359,
+          "intentId": "011c647c420e526f0503c619d72f9dabe0d723d8ba5211f49b66ad15e5af3ed4",
+          "received": "36915772",
+          "timestamp": "1793115435",
+          "withdrawn": [
+            "19056588",
+            "19056588"
+          ],
+          "intentHash": "3eb96eda00ed69b4e416d92db7592940c4a320e39da580250287302011cec3f6",
+          "swappedOut": [
+            "18457886",
+            "18457886"
+          ],
+          "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+          "sharesSpent": "38113177"
+        },
+        "actualFee": "55723",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-27T15:37:19.604Z"
+      },
+      "exactShares": true,
+      "existingUnderlyingUnchanged": true,
+      "settlementDeltaMatchesReceipt": true,
+      "terminalBytesRemoved": true
+    },
+    {
+      "name": "rpc_response_lost_after_provider_acceptance",
+      "acceptedResponsesDropped": 1,
+      "hash": "7b8b399b0afcd7dfd290bfc94aa1f76ae1655ad21b4edf1b10843dec98449be8",
+      "signedEnvelopeDigest": "b5d20bbdb4162c6c197dc894fa852c95a9b955d2ed18ec3bc87405c6b499335d",
+      "observation": {
+        "hash": "7b8b399b0afcd7dfd290bfc94aa1f76ae1655ad21b4edf1b10843dec98449be8",
+        "observedAt": "2026-10-27T15:39:03.345Z",
+        "rawStatus": "SUCCESS",
+        "state": "succeeded",
+        "ledger": 5418380,
+        "actualFee": "55723",
+        "receipt": {
+          "intentId": "f8f9a8f30880c7569bea1d101607e3923105290d4e86ba378725d6f5e5643818",
+          "intentHash": "f5f906522d954cf4e28eb9656c36db8c9e78bf04af9926d06f45eaf94b1dc019",
+          "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+          "owner": "GDLAZY5STEPNQRWLO2YNA4HQCIJX7AXHSFXY5IDNFWXKFMKZ6IPX762E",
+          "sharesSpent": "34301859",
+          "received": "33212358",
+          "withdrawn": [
+            "17150929",
+            "17150929"
+          ],
+          "swappedOut": [
+            "16606179",
+            "16606179"
+          ],
+          "ledger": 5418380,
+          "timestamp": "1793115540"
+        }
+      },
+      "exactShares": true,
+      "existingUnderlyingUnchanged": true,
+      "settlementDeltaMatchesReceipt": true,
+      "terminalBytesRemoved": true
+    },
+    {
+      "name": "sigkill_after_provider_acceptance_before_observation",
+      "acceptedResponsesDropped": 1,
+      "hash": "32995f25dd4cadb84ec9432c7a91dfef0a06422f51932f03303d86fe178b6b30",
+      "signedEnvelopeDigest": "6e3fce98f40b20cd0178483ce0c4e3b57a0476cc3d2f8a8fbee4bed72704d150",
+      "observation": {
+        "hash": "32995f25dd4cadb84ec9432c7a91dfef0a06422f51932f03303d86fe178b6b30",
+        "observedAt": "2026-10-27T15:40:50.826Z",
+        "rawStatus": "SUCCESS",
+        "state": "succeeded",
+        "ledger": 5418400,
+        "actualFee": "55723",
+        "receipt": {
+          "intentId": "c022199e064954899610f760570a443d8df5b1f30458a87e04cd4132656ae5f2",
+          "intentHash": "e1b3b4cd7e326def1df414b177e486f0f2233ce771887485856d03abb10e14f3",
+          "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+          "owner": "GDLAZY5STEPNQRWLO2YNA4HQCIJX7AXHSFXY5IDNFWXKFMKZ6IPX762E",
+          "sharesSpent": "30871673",
+          "received": "29881538",
+          "withdrawn": [
+            "15435836",
+            "15435836"
+          ],
+          "swappedOut": [
+            "14940769",
+            "14940769"
+          ],
+          "ledger": 5418400,
+          "timestamp": "1793115640"
+        }
+      },
+      "exactShares": true,
+      "existingUnderlyingUnchanged": true,
+      "settlementDeltaMatchesReceipt": true,
+      "terminalBytesRemoved": true
+    }
+  ],
+  "providerOperators": [
+    "Stellar Development Foundation",
+    "Tatum"
+  ],
+  "network": "Test SDF Network ; September 2015",
+  "owner": "GDLAZY5STEPNQRWLO2YNA4HQCIJX7AXHSFXY5IDNFWXKFMKZ6IPX762E",
+  "reusedActualSharesRaw": "423479745",
+  "completedAt": "2026-10-27T15:40:55.544Z",
+  "assertions": {
+    "actualPostgreSQL": true,
+    "actualTestnet": true,
+    "independentProvidersAcknowledged": true,
+    "noFabricatedRpcResults": true,
+    "allFourFaultBoundariesConfirmed": true
+  }
+}
