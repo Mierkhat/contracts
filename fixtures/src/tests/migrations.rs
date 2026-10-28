@@ -232,3 +232,61 @@ fn missing_auth_expiry_and_overspending_are_rejected() {
         .is_err());
     assert_eq!(before, f.env.to_snapshot().ledger);
 }
+
+#[test]
+fn changed_destination_code_or_strategy_rejects_before_spending() {
+    for strategy in [false, true] {
+        let (f, destination, guard, draft) = setup(true);
+        if strategy {
+            let mut first = vault::Client::new(&f.env, &destination)
+                .get_assets()
+                .get(0)
+                .unwrap();
+            first.strategies = vec![
+                &f.env,
+                vault::Strategy {
+                    address: Address::generate(&f.env),
+                    name: String::from_str(&f.env, "Unsupported strategy"),
+                    paused: false,
+                },
+            ];
+            f.env.as_contract(&destination, || {
+                f.env
+                    .storage()
+                    .instance()
+                    .set(&VaultFixtureKey::AssetStrategySet(0), &first)
+            });
+        } else {
+            let hash = f.env.deployer().upload_contract_wasm(router::WASM);
+            f.env.as_contract(&destination, || {
+                f.env.deployer().update_current_contract_wasm(hash)
+            });
+        }
+        auth(&f, &guard, &draft);
+        let before = f.env.to_snapshot().ledger;
+        assert_eq!(
+            MigrationClient::new(&f.env, &guard).try_execute_migration(&draft),
+            Err(Ok(soroban_sdk::Error::from_contract_error(1007)))
+        );
+        assert_eq!(before, f.env.to_snapshot().ledger);
+    }
+}
+
+#[test]
+fn malformed_deposit_vectors_and_wrong_recipient_roll_back() {
+    let (f, _, guard, draft) = setup(true);
+    for case in 0..3 {
+        let mut bad = draft.clone();
+        match case {
+            0 => bad.min_deposit = vec![&f.env, 1],
+            1 => bad.min_deposit = vec![&f.env, 0, 1],
+            _ => bad.exit.recipient = Address::generate(&f.env),
+        }
+        auth(&f, &guard, &bad);
+        let before = f.env.to_snapshot().ledger;
+        assert!(MigrationClient::new(&f.env, &guard)
+            .try_execute_migration(&bad)
+            .is_err());
+        assert_eq!(before, f.env.to_snapshot().ledger);
+    }
+}
