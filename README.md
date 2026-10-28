@@ -7,15 +7,17 @@ Mierkhat's immutable Soroban guard redeems an exact number of DeFindex vault sha
 
 The guard has no administrator, upgrade, sweep or pause entry point. It preserves the owner's existing underlying balances and tokens already held by the guard. The current profile supports a strategy-free vault with one or two assets and at most two direct swaps.
 
+Migrations use a separate immutable executable in `migration/`. It moves a chosen portion between the two different testnet asset sets, enforces minimum destination shares and returns residual tokens to the owner. The original withdrawal executable is unchanged. See [migration invariants and evidence](docs/MIGRATIONS.md).
+
 ## Stack
 
-| Component | Technology |
-| --- | --- |
-| Guard | Rust 1.93.0, Soroban SDK 29.0.1 |
-| Contract build | Stellar CLI 28.1.0, `wasm32v1-none` |
+| Component              | Technology                                        |
+| ---------------------- | ------------------------------------------------- |
+| Guard                  | Rust 1.93.0, Soroban SDK 29.0.1                   |
+| Contract build         | Stellar CLI 28.1.0, `wasm32v1-none`               |
 | Pinned upstream builds | Rust 1.91.0, DeFindex and Soroswap original locks |
-| Verification | Compiled-WASM host tests, public testnet receipts |
-| Build tooling | Python 3, Bash, Git, Cargo |
+| Verification           | Compiled-WASM host tests, public testnet receipts |
+| Build tooling          | Python 3, Bash, Git, Cargo                        |
 
 ## Build and test
 
@@ -35,12 +37,13 @@ python3 scripts/verify-artifacts.py
 
 The upstream builder uses exact commits/original locks, rejects modified source and records SHA-256 provenance. Builds stay in ignored `upstream/`, `artifacts/` and `target/`. Build the guard through Stellar CLI: SDK 29 requires specification shaking and this CLI requires Rust 1.93.0. Direct Cargo WASM output is not an equivalent replacement.
 
-Thirteen compiled-WASM tests cover one/two-asset exits, settlement as an underlying asset, exact nested authorization, replay/deadlines, intent mutations, donation preservation, donation-funded minimum rejection, whole-state rollback, executable changes and Rust/XDR vectors. Seeding fixtures may use test authorization helpers; guard execution uses explicit owner trees.
+Eighteen compiled-WASM tests cover one/two-asset exits, settlement as an underlying asset, exact nested authorization, replay/deadlines, intent mutations, donation preservation, donation-funded minimum rejection, whole-state rollback, executable changes and Rust/XDR vectors. Seeding fixtures may use test authorization helpers; guard execution uses explicit owner trees.
 
 ## Repository layout
 
 ```text
-guard/        Immutable guard and signed types
+guard/        Original immutable withdrawal guard and signed types
+migration/    Separate immutable partial vault migration guard
 fixtures/     Real compiled-WASM integration tests
 scripts/      Pinned builds and artifact verification
 evidence/     Public receipts, provenance and network observations
@@ -62,6 +65,7 @@ Its WASM SHA-256 is `515bcffd6ee75c51cf4ff65b054751e562a5f6ad8814cce4c9b9572942e
 
 ## Documentation
 
+- [Partial cross-asset migration](docs/MIGRATIONS.md)
 - [Architecture and invariants](docs/ARCHITECTURE.md)
 - [Builds, deployment and ABI generation](docs/OPERATIONS.md)
 - [Evidence index](docs/EVIDENCE.md) and [release status](docs/RELEASE_STATUS.md)

@@ -1,8 +1,8 @@
 # Release status
 
-The supported testnet flow is implemented: real wallet approval, funding, trustlines, issuance, deposits, guarded exits, receipts and recovery. Two strategy-free vaults have six pinned output profiles; see [position routes](POSITION_ROUTES.md). Mainnet is disabled. Testnet tokens have no monetary value.
+The supported testnet flow is implemented: real wallet approval, funding, trustlines, issuance, deposits, guarded exits, receipts and recovery. Two strategy-free vaults have six pinned withdrawal output profiles and two migration profiles; see [position routes](POSITION_ROUTES.md) and [migration scope](MIGRATIONS.md). Public withdrawal readiness, receiving-target planning and durable in-app condition alerts are also implemented. Mainnet is disabled. Testnet tokens have no monetary value.
 
-The automated corpus has 13 compiled-WASM tests, 34 SDK tests, 4 provider tests, 13 actual PostgreSQL tests, 2 frontend unit tests and 14 live browser scenarios. Genuine Freighter including an actual account switch during a pending prompt, process-kill recovery, API/RPC response loss, independent concurrent providers, historical lookup and resource measurement have additional real network evidence. These counts describe checked-in implementation, not a claim that remote CI already passed.
+The automated corpus has 18 compiled-WASM tests, 37 SDK tests, 4 provider tests, 16 actual PostgreSQL tests, 2 frontend unit tests and 14 live browser scenarios. Genuine Freighter including an actual account switch during a pending prompt, process-kill recovery, API/RPC response loss, independent concurrent providers, historical lookup and resource measurement have additional real network evidence. These counts describe checked-in implementation, not a claim that remote CI already passed.
 
 ## Remaining gates
 

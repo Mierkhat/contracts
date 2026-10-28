@@ -1,0 +1,365 @@
+{
+  "startedAt": "2026-10-28T09:22:25.146Z",
+  "network": "Test SDF Network ; September 2015",
+  "wallet": "Official Freighter 5.49.0",
+  "operations": {
+    "target_withdrawal": {
+      "hash": "8759868e6237b29eb071feae7c579a24bb8d1ca81424a60a595260d9d41fd98e",
+      "epoch": "integration-fixture-v1",
+      "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+      "before": {
+        "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+        "funded": true,
+        "sequence": "23253098969432078",
+        "nativeBalanceRaw": "99997036597",
+        "sharesRaw": "16127224",
+        "tokens": [
+          {
+            "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+            "symbol": "MKA",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "9891574546"
+          },
+          {
+            "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+            "symbol": "MKB",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "9892348645"
+          },
+          {
+            "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+            "symbol": "MKOUT",
+            "decimals": 7,
+            "trusted": true,
+            "balanceRaw": "10185524838"
+          }
+        ],
+        "ledger": 5431162
+      },
+      "stage": "confirmed",
+      "observation": {
+        "hash": "8759868e6237b29eb071feae7c579a24bb8d1ca81424a60a595260d9d41fd98e",
+        "state": "succeeded",
+        "ledger": 5431166,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5431166,
+          "intentId": "dd6c45dea2e3f33bc48d5ca8769c88594432d4638939c0aeae37197c6f2b1824",
+          "received": "153292",
+          "timestamp": "1793179470",
+          "withdrawn": [
+            "81041",
+            "81041"
+          ],
+          "intentHash": "50a32942676408439d3dc9cd3181e41411c37863a84baf59c6fd0b3c050e8dcb",
+          "swappedOut": [
+            "76646",
+            "76646"
+          ],
+          "profileHash": "34e6e0678f5f12715481a18137d811a7b4c58f65509de2bfeeeb284e1c2217ce",
+          "sharesSpent": "162082"
+        },
+        "actualFee": "55723",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-28T09:24:36.077Z"
+      },
+      "verified": {
+        "exactShares": true,
+        "minimumTarget": "152517",
+        "actualOutput": "153292",
+        "otherTokensUnchanged": true
+      }
+    },
+    "migration-dual-to-mkout-v1": {
+      "hash": "693dfbffe6cde1d78613c02d1ea46bd15b86cdc160fadbda8dba406d490240be",
+      "epoch": "migration-dual-to-mkout-v1",
+      "profileHash": "7fe9f0b82739efe6268fb57117d56e33d30bcda185e9348b5fd7a56aed4ddba1",
+      "before": {
+        "source": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "funded": true,
+          "sequence": "23253098969432079",
+          "nativeBalanceRaw": "99996980874",
+          "sharesRaw": "15965142",
+          "tokens": [
+            {
+              "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+              "symbol": "MKA",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "9891574546"
+            },
+            {
+              "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+              "symbol": "MKB",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "9892348645"
+            },
+            {
+              "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+              "symbol": "MKOUT",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "10185678130"
+            }
+          ],
+          "ledger": 5433467
+        },
+        "destination": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "funded": true,
+          "sequence": "23253098969432079",
+          "nativeBalanceRaw": "99996980874",
+          "sharesRaw": "8740358",
+          "tokens": [
+            {
+              "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+              "symbol": "MKA",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "9891574546"
+            },
+            {
+              "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+              "symbol": "MKOUT",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "10185678130"
+            }
+          ],
+          "ledger": 5433468
+        }
+      },
+      "stage": "confirmed",
+      "observation": {
+        "hash": "693dfbffe6cde1d78613c02d1ea46bd15b86cdc160fadbda8dba406d490240be",
+        "state": "succeeded",
+        "ledger": 5433476,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5433476,
+          "intentId": "18c5373062651338eeaab085fca0e58df727ae293adc7c4a1da8c38153b620e9",
+          "received": "150993",
+          "migration": {
+            "refunds": [
+              "0",
+              "0",
+              "0"
+            ],
+            "converted": [
+              "0"
+            ],
+            "deposited": [
+              "150993"
+            ],
+            "destination": "CCBNJ4BD3TT6A3ZTUXT2IRGZ2ONUQ3KVQLGOTLF4W5DLCKDU7LUPEJIG",
+            "refundAssets": [
+              "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+              "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+              "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR"
+            ],
+            "destinationShares": "150993"
+          },
+          "timestamp": "1793191020",
+          "withdrawn": [
+            "79825",
+            "79825"
+          ],
+          "intentHash": "5a4fa10a5c8248f36286c8d425ae65c1f820ac9ef296b2baa905c10c5010f2b5",
+          "swappedOut": [
+            "75497",
+            "75496"
+          ],
+          "profileHash": "7fe9f0b82739efe6268fb57117d56e33d30bcda185e9348b5fd7a56aed4ddba1",
+          "sharesSpent": "159651"
+        },
+        "actualFee": "839854",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-28T12:37:03.465Z"
+      },
+      "verified": {
+        "exactSourceShareSpend": true,
+        "sourceRemainderPreserved": true,
+        "destinationDeltaMatchesReceipt": true,
+        "allTokenDeltasEqualRefunds": true,
+        "receiptPersistsOnReload": true,
+        "focusAndResponsiveBothThemes": true
+      }
+    },
+    "migration-mkout-to-dual-v1": {
+      "hash": "2cd85701025d2244ca036e492ea80f8939fdc27f4a0a9316272f75f77c1acb42",
+      "epoch": "migration-mkout-to-dual-v1",
+      "profileHash": "f52134edd7c6a354e972ec39e8a4f86dc14b4919bf0db99be82adcfc4dc779ee",
+      "before": {
+        "source": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "funded": true,
+          "sequence": "23253098969432080",
+          "nativeBalanceRaw": "99996141020",
+          "sharesRaw": "8891351",
+          "tokens": [
+            {
+              "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+              "symbol": "MKA",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "9891574546"
+            },
+            {
+              "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+              "symbol": "MKB",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "9892348645"
+            },
+            {
+              "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+              "symbol": "MKOUT",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "10185678130"
+            }
+          ],
+          "ledger": 5433478
+        },
+        "destination": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "funded": true,
+          "sequence": "23253098969432080",
+          "nativeBalanceRaw": "99996141020",
+          "sharesRaw": "15805491",
+          "tokens": [
+            {
+              "address": "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+              "symbol": "MKA",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "9891574546"
+            },
+            {
+              "address": "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W",
+              "symbol": "MKB",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "9892348645"
+            },
+            {
+              "address": "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+              "symbol": "MKOUT",
+              "decimals": 7,
+              "trusted": true,
+              "balanceRaw": "10185678130"
+            }
+          ],
+          "ledger": 5433478
+        }
+      },
+      "stage": "confirmed",
+      "observation": {
+        "hash": "2cd85701025d2244ca036e492ea80f8939fdc27f4a0a9316272f75f77c1acb42",
+        "state": "succeeded",
+        "ledger": 5433486,
+        "receipt": {
+          "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+          "ledger": 5433486,
+          "intentId": "11f5da2bc8d3e27cbc3c8a5b6cfec7caed78107e21b9fbc99e1e7b1191ffeb43",
+          "received": "88913",
+          "migration": {
+            "refunds": [
+              "445",
+              "0",
+              "0"
+            ],
+            "converted": [
+              "46488",
+              "46488"
+            ],
+            "deposited": [
+              "46488",
+              "46488"
+            ],
+            "destination": "CA7BC5WFIE4TEE7UATJQDWMLMO242B5S3GCVZOGXHYEDABXLZNKXBBWX",
+            "refundAssets": [
+              "CDARIATHAO4DTSGHZDQQQRH7HUO6O2DOOVOCVYIIL4DXVFG3GXN6VTDR",
+              "CCECTMZ4PJIIHUVCUTGFVOBNJ5WA5JQSCTHJIQCXILMU2WKYWGFNJ45G",
+              "CBNVWZ5GBPOEISLJDBIVZS5MQASTX3ZK773CGXYBB2KN42GY2YS3JL5W"
+            ],
+            "destinationShares": "92975"
+          },
+          "timestamp": "1793191070",
+          "withdrawn": [
+            "88913"
+          ],
+          "intentHash": "46507b399a651845dd16ab078036128fbf980b023c0e7b8d52f513719103ecd7",
+          "swappedOut": [
+            "0"
+          ],
+          "profileHash": "f52134edd7c6a354e972ec39e8a4f86dc14b4919bf0db99be82adcfc4dc779ee",
+          "sharesSpent": "88913"
+        },
+        "actualFee": "838602",
+        "rawStatus": "SUCCESS",
+        "observedAt": "2026-10-28T12:37:53.334Z"
+      },
+      "verified": {
+        "exactSourceShareSpend": true,
+        "sourceRemainderPreserved": true,
+        "destinationDeltaMatchesReceipt": true,
+        "allTokenDeltasEqualRefunds": true,
+        "receiptPersistsOnReload": true,
+        "focusAndResponsiveBothThemes": true
+      }
+    }
+  },
+  "assertions": {
+    "readiness": {
+      "ledger": 5433466,
+      "fullFlow": true,
+      "holdingsRaw": "15965142",
+      "testedSharesRaw": "15965142",
+      "estimatedReceiveRaw": "15098474"
+    },
+    "watch": {
+      "realBackgroundPreflight": true,
+      "inAppNotification": true,
+      "persistsOnReload": true,
+      "markRead": true,
+      "wrongCapabilityDenied": true,
+      "realBackendPostgresRestart": true,
+      "notificationsPreserved": true,
+      "explicitRearm": true,
+      "markReadAfterRestart": true,
+      "serverAndBrowserDeletion": true,
+      "verifiedAt": "2026-10-28T12:41:04.260Z"
+    },
+    "smallestTokenUnitPlan": {
+      "targetRaw": "1",
+      "sharesRaw": "8",
+      "estimatedRaw": "4",
+      "testedCandidates": 3,
+      "ledger": 5433542
+    },
+    "watchReview": {
+      "watchId": "359a4cb5-09da-480b-98a6-6aeb107fb209",
+      "receivingMinimumPreserved": true,
+      "movementBpsPreserved": 10,
+      "freshQuoteAndReview": true,
+      "removedAfterCheck": true
+    },
+    "sharedMigrationReview": {
+      "profileHash": "7fe9f0b82739efe6268fb57117d56e33d30bcda185e9348b5fd7a56aed4ddba1",
+      "destination": "CCBNJ4BD3TT6A3ZTUXT2IRGZ2ONUQ3KVQLGOTLF4W5DLCKDU7LUPEJIG",
+      "minDestinationSharesRaw": "149611",
+      "allLegConditionsVisible": true,
+      "ownerAndGuardIdentified": true,
+      "bothThemesMobileAndDesktop": true,
+      "submissions": 0,
+      "checkedAt": "2026-10-28T12:53:10.442Z"
+    }
+  },
+  "owner": "GAKBD3QFS4XCFEJJRCBO6BIKMZA7DUKYXA27JKS5QMDCE3UEIQCZFX2I",
+  "completedAt": "2026-10-28T12:38:49.207Z"
+}
