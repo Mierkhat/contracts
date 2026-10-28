@@ -1,0 +1,20 @@
+[package]
+name = "mierkhat-migration"
+version = "0.1.0"
+license = "MIT"
+description = "Immutable Soroban guard for partial cross-asset vault migrations"
+repository = "https://github.com/Mierkhat/contracts"
+edition = "2021"
+rust-version = "1.91"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+soroban-sdk = { workspace = true }
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+
+[features]
+testutils = ["soroban-sdk/testutils"]

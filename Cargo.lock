@@ -1116,11 +1116,19 @@ name = "mierkhat-fixtures"
 version = "0.1.0"
 dependencies = [
  "mierkhat-guard",
+ "mierkhat-migration",
  "soroban-sdk",
 ]
 
 [[package]]
 name = "mierkhat-guard"
+version = "0.1.0"
+dependencies = [
+ "soroban-sdk",
+]
+
+[[package]]
+name = "mierkhat-migration"
 version = "0.1.0"
 dependencies = [
  "soroban-sdk",

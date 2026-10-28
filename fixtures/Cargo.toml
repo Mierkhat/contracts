@@ -9,3 +9,5 @@ edition = "2021"
 [dependencies]
 soroban-sdk = { workspace = true, features = ["testutils"] }
 mierkhat-guard = { path = "../guard", features = ["testutils"] }
+
+mierkhat-migration = { path = "../migration", features = ["testutils"] }

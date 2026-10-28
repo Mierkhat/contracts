@@ -1,5 +1,5 @@
 [workspace]
-members = ["guard", "fixtures"]
+members = ["guard", "migration", "fixtures"]
 resolver = "2"
 exclude = ["upstream/soroswap/contracts/pair", "upstream/soroswap/contracts/factory", "upstream/soroswap/contracts/router", "upstream/soroswap/contracts/token"]
 

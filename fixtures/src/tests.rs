@@ -746,3 +746,5 @@ fn corrupted_pair_asset_state_rolls_back_all_touched_state() {
         );
     }
 }
+
+mod migrations;
