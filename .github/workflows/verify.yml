@@ -53,6 +53,25 @@ jobs:
       - run: cargo +1.93.0 fmt --all --check
       - run: python3 scripts/verify-artifacts.py
       - run: git diff --exit-code -- evidence/upstream-build.json
+      - name: Package verified contract artifacts
+        if: github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p artifacts/release
+          cp target/wasm32v1-none/release/mierkhat_guard.wasm artifacts/release/
+          cp target/wasm32v1-none/release/mierkhat_migration.wasm artifacts/release/
+          cp artifacts/upstream-build.json artifacts/release/
+          cp evidence/upstream-build.json artifacts/release/deployed-upstream-build.json
+          git rev-parse HEAD > artifacts/release/SOURCE_COMMIT
+          cd artifacts/release
+          sha256sum mierkhat_guard.wasm mierkhat_migration.wasm upstream-build.json deployed-upstream-build.json SOURCE_COMMIT > SHA256SUMS
+      - name: Store verified WASM for deployment review
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: contracts-${{ github.sha }}
+          path: artifacts/release/
+          if-no-files-found: error
+          retention-days: 14
   ci:
     name: CI
     if: always()

@@ -1,6 +1,6 @@
 # CI/CD operations
 
-Merging a reviewed pull request into `main` starts `Verify and release`. Frontend and backend automatically stage a production build at their existing Vercel projects after the required `CI` check succeeds. The release script tests the staged deployment before promoting it to the existing live domain. Contract merges validate reproducible WASM and evidence; they do not submit transactions or change onchain deployments.
+Merging a reviewed pull request into `main` starts `Verify and release`. Frontend and backend automatically stage a production build at their existing Vercel projects after the required `CI` check succeeds. The release script tests the staged deployment before promoting it to the existing live domain. Contract merges validate reproducible WASM and evidence, then retain both verified executables, source commit and SHA256SUMS as a commit-named Actions artifact for 14 days. They do not submit transactions or change onchain deployments.
 
 | Repository | Validation | Production destination |
 | --- | --- | --- |

@@ -15,7 +15,7 @@ stellar --version
 
 ## Upstream provenance
 
-`scripts/build-upstream.py` uses Soroswap commit `6eade008ee6794075ad941609e0fef0d1124d3eb` and DeFindex commit `a0fcabfae38f1c7b0c9c2f10ff51d225f8edc2f1`. It rejects dirty source, builds with original locks and writes `evidence/upstream-build.json`. Historical `.optimized.wasm` imports are exact copies, not optimizer claims. Source/build output remains ignored.
+`scripts/build-upstream.py` uses Soroswap commit `6eade008ee6794075ad941609e0fef0d1124d3eb` and DeFindex commit `a0fcabfae38f1c7b0c9c2f10ff51d225f8edc2f1`. It rejects dirty source, builds with original locks at a fixed absolute source path and writes `artifacts/upstream-build.json`. [Reproducible builds](REPRODUCIBLE_BUILDS.md) explains the separate canonical output pins and preserved historical deployment record. Historical `.optimized.wasm` imports are exact copies, not optimizer claims. Source/build output remains ignored.
 
 `./scripts/build-guard.sh` validates the CLI and performs required specification shaking. `scripts/verify-artifacts.py` compares upstream bytes with provenance and guard bytes with the deployed proof.
 
