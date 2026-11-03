@@ -1,0 +1,16 @@
+# Reviewed historical false positives: public contract addresses, auth digests and ledger-key XDR.
+# Exact commit/file/rule/line fingerprints only; new findings remain blocked.
+ee12effd3becb4d6da0e1a351e26cf8f6b66b9aa:evidence/testnet-fixture.json:generic-api-key:217
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:10
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:16
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:22
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:28
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:40
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:46
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:52
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:58
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:64
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:70
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:76
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:82
+f0f0c9a9379db4b3827302b5c909759c9c19cfb1:evidence/restoration-readiness.json:generic-api-key:88

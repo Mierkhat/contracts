@@ -1,14 +1,43 @@
-name: Verify
+name: Verify and release
 on:
   push:
+    branches: [main]
   pull_request:
+    branches: [main]
+  workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
 jobs:
-  contracts:
+  security:
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - run: ./scripts/ci-security.sh
+  compatibility:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - run: python3 scripts/check-compatibility.py
+  application:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
       - run: rustup toolchain install 1.91.0 --profile minimal --target wasm32v1-none
       - run: rustup toolchain install 1.93.0 --profile minimal --component clippy --component rustfmt --target wasm32v1-none
       - name: Install pinned Stellar CLI
@@ -23,3 +52,20 @@ jobs:
       - run: cargo +1.93.0 test --workspace --locked
       - run: cargo +1.93.0 fmt --all --check
       - run: python3 scripts/verify-artifacts.py
+      - run: git diff --exit-code -- evidence/upstream-build.json
+  ci:
+    name: CI
+    if: always()
+    needs: [security, compatibility, application]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Require every validation job
+        env:
+          SECURITY: ${{ needs.security.result }}
+          COMPATIBILITY: ${{ needs.compatibility.result }}
+          APPLICATION: ${{ needs.application.result }}
+        run: |
+          test "$SECURITY" = success
+          test "$COMPATIBILITY" = success
+          test "$APPLICATION" = success
