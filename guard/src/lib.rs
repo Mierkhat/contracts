@@ -416,6 +416,8 @@ impl Guard {
             ledger,
             timestamp: now,
         };
+        // Preserve the deployed receipt event ABI; migrate only in a separately reviewed release.
+        #[allow(deprecated)]
         env.events()
             .publish((Symbol::new(&env, "exit_v1"),), &receipt);
         receipt

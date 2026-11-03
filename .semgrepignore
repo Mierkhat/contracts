@@ -1,0 +1,13 @@
+node_modules/
+.tooling/
+dist/
+target/
+upstream/
+artifacts/
+evidence/
+fixtures/
+tests/
+test/
+**/*.test.ts
+sdk/src/generated/
+.github/security-rules/
