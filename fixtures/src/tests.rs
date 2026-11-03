@@ -4,12 +4,15 @@ use soroban_sdk::{
     token, vec, Address, BytesN, Env, IntoVal, Map, String, Vec,
 };
 
+// Upstream ABI-generated signatures cannot be shortened locally.
+#[allow(clippy::too_many_arguments)]
 mod vault {
     soroban_sdk::contractimport!(file = "../artifacts/defindex_vault.wasm");
 }
 mod factory {
     soroban_sdk::contractimport!(file = "../artifacts/soroswap_factory.wasm");
 }
+#[allow(clippy::too_many_arguments)]
 mod router {
     soroban_sdk::contractimport!(file = "../artifacts/soroswap_router.wasm");
 }
@@ -40,7 +43,6 @@ fn pin(env: &Env, address: &Address, wasm: &[u8]) -> CodePin {
 fn fixture(settlement_underlying: bool, one_asset: bool) -> Fixture {
     let env = Env::new_with_config(soroban_sdk::testutils::EnvTestConfig {
         capture_snapshot_at_drop: false,
-        ..Default::default()
     });
     env.cost_estimate().budget().reset_unlimited();
     env.ledger().with_mut(|l| {
@@ -433,7 +435,9 @@ fn runtime_code_pin_change_rejects_before_spending() {
     let f = fixture(false, false);
     let hash = f.env.deployer().upload_contract_wasm(router::WASM);
     f.env.as_contract(&f.vault, || {
-        f.env.deployer().update_current_contract_wasm(hash)
+        f.env
+            .deployer()
+            .update_current_contract(soroban_sdk::ContractExecutable::Wasm(hash))
     });
     authorize(&f, &f.intent);
     let before = f.env.to_snapshot().ledger;
@@ -493,42 +497,51 @@ fn exclusive_deadlines_and_expired_marker_cannot_revive_an_intent() {
     );
 }
 
-#[soroban_sdk::contract]
-struct AuthorizationProbe;
-#[soroban_sdk::contractimpl]
-impl AuthorizationProbe {
-    pub fn run(
-        env: Env,
-        router: Address,
-        input: Address,
-        output: Address,
-        pair: Address,
-        amount: i128,
-        authorized_amount: i128,
-        authorized_token: Address,
-    ) {
-        use soroban_sdk::auth::{ContractContext, InvokerContractAuthEntry, SubContractInvocation};
-        let me = env.current_contract_address();
-        env.authorize_as_current_contract(vec![
-            &env,
-            InvokerContractAuthEntry::Contract(SubContractInvocation {
-                context: ContractContext {
-                    contract: authorized_token,
-                    fn_name: soroban_sdk::symbol_short!("transfer"),
-                    args: (me.clone(), pair, authorized_amount).into_val(&env),
-                },
-                sub_invocations: vec![&env],
-            }),
-        ]);
-        mierkhat_guard::RouterClient::new(&env, &router).swap_exact_tokens_for_tokens(
-            &amount,
-            &1,
-            &vec![&env, input, output],
-            &me,
-            &1120,
-        );
+// Only this fixed upstream-authorization probe ABI exceeds Clippy argument limits.
+#[allow(clippy::too_many_arguments)]
+mod authorization_probe {
+    use soroban_sdk::{vec, Address, Env, IntoVal};
+    #[soroban_sdk::contract]
+    pub(super) struct AuthorizationProbe;
+    #[soroban_sdk::contractimpl]
+    impl AuthorizationProbe {
+        pub fn run(
+            env: Env,
+            router: Address,
+            input: Address,
+            output: Address,
+            pair: Address,
+            amount: i128,
+            authorized_amount: i128,
+            authorized_token: Address,
+        ) {
+            use soroban_sdk::auth::{
+                ContractContext, InvokerContractAuthEntry, SubContractInvocation,
+            };
+            let me = env.current_contract_address();
+            env.authorize_as_current_contract(vec![
+                &env,
+                InvokerContractAuthEntry::Contract(SubContractInvocation {
+                    context: ContractContext {
+                        contract: authorized_token,
+                        fn_name: soroban_sdk::symbol_short!("transfer"),
+                        args: (me.clone(), pair, authorized_amount).into_val(&env),
+                    },
+                    sub_invocations: vec![&env],
+                }),
+            ]);
+            mierkhat_guard::RouterClient::new(&env, &router).swap_exact_tokens_for_tokens(
+                &amount,
+                &1,
+                &vec![&env, input, output],
+                &me,
+                &1120,
+            );
+        }
     }
 }
+use authorization_probe::{AuthorizationProbe, AuthorizationProbeClient};
+
 #[test]
 fn nested_transfer_authorization_rejects_wrong_amount_and_token() {
     let f = fixture(false, false);
@@ -697,7 +710,9 @@ fn router_factory_and_each_executable_pin_change_rejects_before_spending() {
             };
             let replacement = f.env.deployer().upload_contract_wasm(vault::WASM);
             f.env.as_contract(&address, || {
-                f.env.deployer().update_current_contract_wasm(replacement)
+                f.env
+                    .deployer()
+                    .update_current_contract(soroban_sdk::ContractExecutable::Wasm(replacement))
             });
         }
         authorize(&f, &f.intent);
@@ -748,3 +763,77 @@ fn corrupted_pair_asset_state_rolls_back_all_touched_state() {
 }
 
 mod migrations;
+
+/// Bounded deterministic property sweep across rounding and position sizes,
+/// executed against the same real vault/router/pair/guard WASM used in CI.
+#[test]
+fn varied_shares_bind_authority_minimum_rollback_and_replay() {
+    let quantities = [1_001i128, 9_999, 10_001, 999_999, 10_000_001, 1_000_000_003];
+    for (settlement, one) in [(false, false), (true, false), (false, true)] {
+        for shares in quantities {
+            let measured = fixture(settlement, one);
+            let mut intent = measured.intent.clone();
+            intent.shares = shares;
+            authorize(&measured, &intent);
+            let receipt = GuardClient::new(&measured.env, &measured.guard).execute_exit(&intent);
+            assert!(receipt.received > 0, "rounding boundary {shares}");
+            assert_eq!(receipt.shares_spent, shares);
+
+            let f = fixture(settlement, one);
+            let mut i = f.intent.clone();
+            i.shares = shares;
+            i.min_receive = receipt.received + 1;
+            authorize(&f, &i);
+            let before = f.env.to_snapshot().ledger;
+            assert_eq!(
+                GuardClient::new(&f.env, &f.guard).try_execute_exit(&i),
+                Err(Ok(soroban_sdk::Error::from_contract_error(
+                    Error::OutcomeBelowMinimum as u32
+                )))
+            );
+            assert_eq!(before, f.env.to_snapshot().ledger);
+
+            // Approval for a neighboring share count must not authorize this
+            // transaction, even when the same owner/route/minimum are supplied.
+            i.min_receive = receipt.received;
+            let mut neighboring = i.clone();
+            neighboring.shares += 1;
+            authorize(&f, &neighboring);
+            assert!(GuardClient::new(&f.env, &f.guard)
+                .try_execute_exit(&i)
+                .is_err());
+            assert_eq!(before, f.env.to_snapshot().ledger);
+
+            authorize(&f, &i);
+            let shares_before = token::Client::new(&f.env, &f.vault).balance(&f.owner);
+            let out_before = token::Client::new(&f.env, &f.settlement).balance(&f.owner);
+            let exact = GuardClient::new(&f.env, &f.guard).execute_exit(&i);
+            assert_eq!(exact.received, receipt.received);
+            assert_eq!(
+                token::Client::new(&f.env, &f.vault).balance(&f.owner),
+                shares_before - shares
+            );
+            assert_eq!(
+                token::Client::new(&f.env, &f.settlement).balance(&f.owner),
+                out_before + exact.received
+            );
+            for asset in f
+                .assets
+                .iter()
+                .chain(core::iter::once(f.settlement.clone()))
+                .chain(core::iter::once(f.vault.clone()))
+            {
+                assert_eq!(token::Client::new(&f.env, &asset).balance(&f.guard), 0);
+            }
+            let committed = f.env.to_snapshot().ledger;
+            authorize(&f, &i);
+            assert_eq!(
+                GuardClient::new(&f.env, &f.guard).try_execute_exit(&i),
+                Err(Ok(soroban_sdk::Error::from_contract_error(
+                    Error::AlreadyExecuted as u32
+                )))
+            );
+            assert_eq!(committed, f.env.to_snapshot().ledger);
+        }
+    }
+}

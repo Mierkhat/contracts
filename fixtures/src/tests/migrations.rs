@@ -259,7 +259,9 @@ fn changed_destination_code_or_strategy_rejects_before_spending() {
         } else {
             let hash = f.env.deployer().upload_contract_wasm(router::WASM);
             f.env.as_contract(&destination, || {
-                f.env.deployer().update_current_contract_wasm(hash)
+                f.env
+                    .deployer()
+                    .update_current_contract(soroban_sdk::ContractExecutable::Wasm(hash))
             });
         }
         auth(&f, &guard, &draft);

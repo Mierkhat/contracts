@@ -313,6 +313,8 @@ fn deposit_amounts(
     }
     panic_with_error!(env, Error::DepositMismatch);
 }
+// This reviewed asset-flow helper keeps the deployed implementation and executable unchanged.
+#[allow(clippy::too_many_arguments)]
 fn deposit_and_refund(
     env: &Env,
     m: &MigrationProfile,
@@ -727,6 +729,8 @@ impl Migration {
             ledger,
             timestamp: now,
         };
+        // Preserve the deployed receipt event ABI; migrate only in a separately reviewed release.
+        #[allow(deprecated)]
         env.events()
             .publish((Symbol::new(&env, "migrate_v1"),), &receipt);
         receipt
