@@ -9,6 +9,10 @@ The guard has no administrator, upgrade, sweep or pause entry point. It preserve
 
 Migrations use a separate immutable executable in `migration/`. It moves a chosen portion between the two different testnet asset sets, enforces minimum destination shares and returns residual tokens to the owner. The original withdrawal executable is unchanged. See [migration invariants and evidence](docs/MIGRATIONS.md).
 
+## Post-rejection review
+
+See [the review plan](docs/REVIEW_PLAN.md) and [completed changes and verification](docs/RESUBMISSION.md) for this update against the rejected submission. Vercel is currently paused; use localhost for review.
+
 ## Stack
 
 | Component              | Technology                                        |
