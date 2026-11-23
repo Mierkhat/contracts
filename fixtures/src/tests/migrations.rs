@@ -207,6 +207,54 @@ fn destination_minimum_failure_reverts_every_ledger_entry() {
     auth(&f, &guard, &draft);
     MigrationClient::new(&f.env, &guard).execute_migration(&draft);
 }
+
+#[test]
+fn migration_deadlines_are_exclusive_and_rejection_preserves_full_state() {
+    for multi in [false, true] {
+        for expire_time in [false, true] {
+            let (f, _, guard, draft) = setup(multi);
+            auth(&f, &guard, &draft);
+            f.env.ledger().with_mut(|ledger| {
+                if expire_time {
+                    ledger.timestamp = draft.exit.valid_before_time;
+                } else {
+                    ledger.sequence_number = draft.exit.valid_before_ledger;
+                }
+            });
+            let before = f.env.to_snapshot().ledger;
+            assert_eq!(
+                MigrationClient::new(&f.env, &guard).try_execute_migration(&draft),
+                Err(Ok(soroban_sdk::Error::from_contract_error(1003)))
+            );
+            assert_eq!(before, f.env.to_snapshot().ledger);
+        }
+    }
+}
+
+#[test]
+fn migration_succeeds_at_the_last_valid_time_and_ledger() {
+    for multi in [false, true] {
+        let (f, destination, guard, draft) = setup(multi);
+        auth(&f, &guard, &draft);
+        f.env.ledger().with_mut(|ledger| {
+            ledger.timestamp = draft.exit.valid_before_time - 1;
+            ledger.sequence_number = draft.exit.valid_before_ledger - 1;
+        });
+        let source_before = token::Client::new(&f.env, &f.vault).balance(&f.owner);
+        let destination_before = token::Client::new(&f.env, &destination).balance(&f.owner);
+        let receipt = MigrationClient::new(&f.env, &guard).execute_migration(&draft);
+        assert_eq!(receipt.timestamp, draft.exit.valid_before_time - 1);
+        assert_eq!(receipt.ledger, draft.exit.valid_before_ledger - 1);
+        assert_eq!(
+            token::Client::new(&f.env, &f.vault).balance(&f.owner),
+            source_before - draft.exit.shares
+        );
+        assert_eq!(
+            token::Client::new(&f.env, &destination).balance(&f.owner),
+            destination_before + receipt.destination_shares
+        );
+    }
+}
 #[test]
 fn missing_auth_expiry_and_overspending_are_rejected() {
     let (f, _, guard, draft) = setup(true);
