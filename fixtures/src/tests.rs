@@ -455,9 +455,18 @@ fn cross_language_vectors_and_host_resource_observation() {
     let hex = |bytes: soroban_sdk::Bytes| -> std::string::String {
         bytes.iter().map(|b| std::format!("{b:02x}")).collect()
     };
-    let output=std::format!("{{\n  \"kind\": \"strict owner mock host fixture, not a signed ledger transaction\",\n  \"profile_xdr_hex\": \"{}\",\n  \"intent_xdr_hex\": \"{}\",\n  \"receipt_xdr_hex\": \"{}\",\n  \"resources_debug\": \"{:?}\"\n}}\n",hex(f.profile.to_xdr(&f.env)),hex(f.intent.to_xdr(&f.env)),hex(receipt.to_xdr(&f.env)),resources);
-    let path =
-        std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../evidence/host-fixture.json");
+    let profile = hex(f.profile.to_xdr(&f.env));
+    let intent = hex(f.intent.to_xdr(&f.env));
+    let receipt = hex(receipt.to_xdr(&f.env));
+    let regenerate = std::env::var("MIERKHAT_REGENERATE_HOST_FIXTURE").as_deref() == Ok("1");
+    let output=std::format!("{{\n  \"kind\": \"strict owner mock host fixture, not a signed ledger transaction\",\n  \"profile_xdr_hex\": \"{}\",\n  \"intent_xdr_hex\": \"{}\",\n  \"receipt_xdr_hex\": \"{}\",\n  \"resources_debug\": \"{:?}\"\n}}\n",profile,intent,receipt,resources);
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..");
+    let path = if regenerate {
+        root.join("evidence/host-fixture.json")
+    } else {
+        std::fs::create_dir_all(root.join(".tooling")).unwrap();
+        root.join(".tooling/host-fixture.json")
+    };
     std::fs::write(path, output).unwrap();
 }
 
