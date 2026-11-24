@@ -1,4 +1,4 @@
-name: Verify and release
+name: Main verification
 on:
   push:
     branches: [main]
